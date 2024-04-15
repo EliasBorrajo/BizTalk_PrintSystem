@@ -2,11 +2,11 @@
 #error Do not define __DESIGNER_DATA.
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <om:MetaModel MajorVersion="1" MinorVersion="3" Core="2b131234-7959-458d-834f-2dc0769ce683" ScheduleModel="66366196-361d-448d-976f-cab5e87496d2" xmlns:om="http://schemas.microsoft.com/BizTalk/2003/DesignerData">
-    <om:Element Type="Module" OID="71049efc-edce-4722-ab88-abd04199f379" LowerBound="1.1" HigherBound="12.1">
+    <om:Element Type="Module" OID="71049efc-edce-4722-ab88-abd04199f379" LowerBound="1.1" HigherBound="21.1">
         <om:Property Name="ReportToAnalyst" Value="True" />
         <om:Property Name="Name" Value="BizTalkPrintSystem" />
         <om:Property Name="Signal" Value="False" />
-        <om:Element Type="ServiceDeclaration" OID="6dc94aa0-194b-4084-b83a-268901064fc8" ParentLink="Module_ServiceDeclaration" LowerBound="4.1" HigherBound="11.1">
+        <om:Element Type="ServiceDeclaration" OID="6dc94aa0-194b-4084-b83a-268901064fc8" ParentLink="Module_ServiceDeclaration" LowerBound="11.1" HigherBound="20.1">
             <om:Property Name="InitializedTransactionType" Value="False" />
             <om:Property Name="IsInvokable" Value="True" />
             <om:Property Name="TypeModifier" Value="Internal" />
@@ -16,6 +16,46 @@
             <om:Element Type="ServiceBody" OID="0c7a8657-183e-450d-bfe7-37fc177477e9" ParentLink="ServiceDeclaration_ServiceBody">
                 <om:Property Name="Signal" Value="False" />
             </om:Element>
+            <om:Element Type="PortDeclaration" OID="29021ae1-1b1a-4101-853b-0a3aa07811ec" ParentLink="ServiceDeclaration_PortDeclaration" LowerBound="14.1" HigherBound="16.1">
+                <om:Property Name="PortModifier" Value="Implements" />
+                <om:Property Name="Orientation" Value="Left" />
+                <om:Property Name="PortIndex" Value="7" />
+                <om:Property Name="IsWebPort" Value="False" />
+                <om:Property Name="OrderedDelivery" Value="False" />
+                <om:Property Name="DeliveryNotification" Value="None" />
+                <om:Property Name="Type" Value="BizTalkPrintSystem.SAPType" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="SAP" />
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="PhysicalBindingAttribute" OID="19af5a15-4540-4b6d-b699-a6bd04489e74" ParentLink="PortDeclaration_CLRAttribute" LowerBound="14.1" HigherBound="15.1">
+                    <om:Property Name="InPipeline" Value="Microsoft.BizTalk.DefaultPipelines.XMLReceive" />
+                    <om:Property Name="OutPipeline" Value="Microsoft.BizTalk.DefaultPipelines.XMLTransmit" />
+                    <om:Property Name="TransportType" Value="FILE" />
+                    <om:Property Name="URI" Value="C:\AllFiles\Project\FilesSystem\SAP\IN\*.xml" />
+                    <om:Property Name="IsDynamic" Value="False" />
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+            </om:Element>
+        </om:Element>
+        <om:Element Type="PortType" OID="5e5d0a23-f6b4-400d-b6a0-08d1c324153f" ParentLink="Module_PortType" LowerBound="4.1" HigherBound="11.1">
+            <om:Property Name="Synchronous" Value="False" />
+            <om:Property Name="TypeModifier" Value="Internal" />
+            <om:Property Name="ReportToAnalyst" Value="True" />
+            <om:Property Name="Name" Value="SAPType" />
+            <om:Property Name="Signal" Value="False" />
+            <om:Element Type="OperationDeclaration" OID="fd5c33d4-8245-47e2-8fba-64ccf6afb3c6" ParentLink="PortType_OperationDeclaration" LowerBound="6.1" HigherBound="10.1">
+                <om:Property Name="OperationType" Value="OneWay" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="SendToSAP" />
+                <om:Property Name="Signal" Value="True" />
+                <om:Element Type="MessageRef" OID="1e0c9e16-7055-44f4-a81b-c18d130bbcbd" ParentLink="OperationDeclaration_RequestMessageRef" LowerBound="8.13" HigherBound="8.28">
+                    <om:Property Name="Ref" Value="BizTalkPrintSystem.Schemas.UserOut" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Request" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+            </om:Element>
         </om:Element>
     </om:Element>
 </om:MetaModel>
@@ -23,9 +63,18 @@
 [Microsoft.XLANGs.BaseTypes.BPELExportable(false)]
 module BizTalkPrintSystem
 {
+    internal porttype SAPType
+    {
+        oneway SendToSAP
+        {
+            Schemas.UserOut
+        };
+    };
     [Microsoft.XLANGs.BaseTypes.BPELExportable(false)]
     internal service Main
     {
+        [Microsoft.XLANGs.BaseTypes.PhysicalBinding("FILE", "C:\\AllFiles\\Project\\FilesSystem\\SAP\\IN\\*.xml", typeof(Microsoft.BizTalk.DefaultPipelines.XMLReceive))]
+        port implements SAPType SAP;
         body ()
         {
         }

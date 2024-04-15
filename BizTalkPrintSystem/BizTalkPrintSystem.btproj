@@ -89,7 +89,7 @@
   </ItemGroup>
   <ItemGroup>
     <Schema Include="Schemas\UserOut.xsd">
-      <TypeName>User</TypeName>
+      <TypeName>UserOut</TypeName>
       <Namespace>BizTalkPrintSystem.Schemas</Namespace>
       <SubType>Task</SubType>
     </Schema>
@@ -123,7 +123,7 @@
     </Schema>
   </ItemGroup>
   <ItemGroup>
-    <XLang Include="Orchestrations\Orchestration_DELETE.odx">
+    <XLang Include="Orchestrations\Main.odx">
       <TypeName>Main</TypeName>
       <Namespace>BizTalkPrintSystem.Orchestrations</Namespace>
       <SubType>Task</SubType>
