@@ -66,7 +66,13 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Schema Include="Schemas\AddAmount.xsd">
+      <TypeName>AddAmount</TypeName>
+      <Namespace>BizTalkPrintSystem.Schemas</Namespace>
+      <SubType>Task</SubType>
+    </Schema>
+  </ItemGroup>
   <ItemGroup>
     <Map Include="Maps\Map_DELETE.btm">
       <TypeName>Map_DELETE</TypeName>
@@ -89,8 +95,36 @@
     </Pipeline>
   </ItemGroup>
   <ItemGroup>
-    <Schema Include="Schemas\Schema_DELETE.xsd">
-      <TypeName>Schema_DELETE</TypeName>
+    <Schema Include="Schemas\UserOut.xsd">
+      <TypeName>User</TypeName>
+      <Namespace>BizTalkPrintSystem.Schemas</Namespace>
+      <SubType>Task</SubType>
+    </Schema>
+  </ItemGroup>
+  <ItemGroup>
+    <Schema Include="Schemas\UserIn.xsd">
+      <TypeName>UserIn</TypeName>
+      <Namespace>BizTalkPrintSystem.Schemas</Namespace>
+      <SubType>Task</SubType>
+    </Schema>
+  </ItemGroup>
+  <ItemGroup>
+    <Schema Include="Schemas\AddQuota.xsd">
+      <TypeName>AddQuota</TypeName>
+      <Namespace>BizTalkPrintSystem.Schemas</Namespace>
+      <SubType>Task</SubType>
+    </Schema>
+  </ItemGroup>
+  <ItemGroup>
+    <Schema Include="Schemas\AuthenticationOut.xsd">
+      <TypeName>Authentication</TypeName>
+      <Namespace>BizTalkPrintSystem.Schemas</Namespace>
+      <SubType>Task</SubType>
+    </Schema>
+  </ItemGroup>
+  <ItemGroup>
+    <Schema Include="Schemas\AuthenticationIn.xsd">
+      <TypeName>AuthenticationIn</TypeName>
       <Namespace>BizTalkPrintSystem.Schemas</Namespace>
       <SubType>Task</SubType>
     </Schema>
