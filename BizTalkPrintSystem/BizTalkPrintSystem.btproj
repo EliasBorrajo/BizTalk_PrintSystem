@@ -138,7 +138,12 @@
   </ItemGroup>
   <ItemGroup>
     <Schema Include="Schemas\AddAmountByUsername_SOAP.xsd">
-      <TypeName>soap_request</TypeName>
+      <TypeName>AddAmountByUsername_SOAP</TypeName>
+      <Namespace>BizTalkPrintSystem.Schemas</Namespace>
+      <SubType>Task</SubType>
+    </Schema>
+    <Schema Include="Schemas\AddAmountByUsername_SOAP1.xsd">
+      <TypeName>AddAmountByUsername_SOAP1</TypeName>
       <Namespace>BizTalkPrintSystem.Schemas</Namespace>
       <SubType>Task</SubType>
     </Schema>
