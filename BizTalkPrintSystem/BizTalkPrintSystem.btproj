@@ -129,6 +129,20 @@
       <SubType>Task</SubType>
     </XLang>
   </ItemGroup>
+  <ItemGroup>
+    <Map Include="Maps\AddAmount_To_AddAmountByUsernameSOAP.btm">
+      <TypeName>AddAmount_To_AddAmountSOAP</TypeName>
+      <Namespace>BizTalkPrintSystem.Maps</Namespace>
+      <SubType>Task</SubType>
+    </Map>
+  </ItemGroup>
+  <ItemGroup>
+    <Schema Include="Schemas\AddAmountByUsername_SOAP.xsd">
+      <TypeName>soap_request</TypeName>
+      <Namespace>BizTalkPrintSystem.Schemas</Namespace>
+      <SubType>Task</SubType>
+    </Schema>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\BizTalk\BizTalkC.targets" />
 </Project>
