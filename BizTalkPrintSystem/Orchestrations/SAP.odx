@@ -71,7 +71,7 @@
         </om:Element>
         <om:Element Type="ServiceDeclaration" OID="97842603-29f4-4da2-85d6-e82b316bdde4" ParentLink="Module_ServiceDeclaration" LowerBound="25.1" HigherBound="62.1">
             <om:Property Name="InitializedTransactionType" Value="False" />
-            <om:Property Name="IsInvokable" Value="True" />
+            <om:Property Name="IsInvokable" Value="False" />
             <om:Property Name="TypeModifier" Value="Internal" />
             <om:Property Name="ReportToAnalyst" Value="True" />
             <om:Property Name="Name" Value="SAP" />
@@ -79,7 +79,7 @@
             <om:Element Type="ServiceBody" OID="ee229711-b9d6-4d58-9031-5c9c28814222" ParentLink="ServiceDeclaration_ServiceBody">
                 <om:Property Name="Signal" Value="False" />
                 <om:Element Type="Receive" OID="173144b5-318b-4f4f-9232-dba01d171307" ParentLink="ServiceBody_Statement" LowerBound="40.1" HigherBound="42.1">
-                    <om:Property Name="Activate" Value="False" />
+                    <om:Property Name="Activate" Value="True" />
                     <om:Property Name="PortName" Value="SAP_In" />
                     <om:Property Name="MessageName" Value="msgNewUser" />
                     <om:Property Name="OperationName" Value="NewUser" />
@@ -303,7 +303,7 @@ module BizTalkPrintSystem
         body ()
         {
             [Microsoft.XLANGs.BaseTypes.DesignerPosition("173144b5-318b-4f4f-9232-dba01d171307")]
-            receive (SAP_In.NewUser, msgNewUser);
+            activate receive (SAP_In.NewUser, msgNewUser);
             [Microsoft.XLANGs.BaseTypes.DesignerPosition("e4f90254-61df-4709-b543-a79173cbe954")]
             construct msgAddUser_SOAP
             {

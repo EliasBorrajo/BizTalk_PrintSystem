@@ -109,13 +109,6 @@
     </Schema>
   </ItemGroup>
   <ItemGroup>
-    <XLang Include="Orchestrations\Main.odx">
-      <TypeName>Main</TypeName>
-      <Namespace>BizTalkPrintSystem.Orchestrations</Namespace>
-      <SubType>Task</SubType>
-    </XLang>
-  </ItemGroup>
-  <ItemGroup>
     <Map Include="Maps\AddAmount_To_AddAmountByUsernameSOAP.btm">
       <TypeName>AddAmount_To_AddAmountSOAP</TypeName>
       <Namespace>BizTalkPrintSystem.Maps</Namespace>
