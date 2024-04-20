@@ -1,0 +1,15 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:AddUserResponse>
+         <!-- Include response data here -->
+         <tem:Account>
+            <tem:UiD>123</tem:UiD>
+            <tem:CardID>456</tem:CardID>
+            <tem:Username>JohnDoe</tem:Username>
+            <tem:AccountAmount>1000.0</tem:AccountAmount>
+            <tem:QuotaFeuilles>50</tem:QuotaFeuilles>
+         </tem:Account>
+      </tem:AddUserResponse>
+   </soapenv:Body>
+</soapenv:Envelope>

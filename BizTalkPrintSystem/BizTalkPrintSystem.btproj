@@ -74,13 +74,6 @@
     </Schema>
   </ItemGroup>
   <ItemGroup>
-    <Map Include="Maps\Map_DELETE.btm">
-      <TypeName>Map_DELETE</TypeName>
-      <Namespace>BizTalkPrintSystem.Maps</Namespace>
-      <SubType>Task</SubType>
-    </Map>
-  </ItemGroup>
-  <ItemGroup>
     <Pipeline Include="Pipelines\SendPipeline_DELETE.btp">
       <TypeName>SendPipeline_DELETE</TypeName>
       <Namespace>BizTalkPrintSystem.Pipelines</Namespace>
@@ -90,13 +83,6 @@
   <ItemGroup>
     <Schema Include="Schemas\UserOut.xsd">
       <TypeName>UserOut</TypeName>
-      <Namespace>BizTalkPrintSystem.Schemas</Namespace>
-      <SubType>Task</SubType>
-    </Schema>
-  </ItemGroup>
-  <ItemGroup>
-    <Schema Include="Schemas\UserIn.xsd">
-      <TypeName>UserIn</TypeName>
       <Namespace>BizTalkPrintSystem.Schemas</Namespace>
       <SubType>Task</SubType>
     </Schema>
@@ -154,6 +140,75 @@
       <Namespace>BizTalkPrintSystem.Orchestrations</Namespace>
       <SubType>Task</SubType>
     </XLang>
+  </ItemGroup>
+  <ItemGroup>
+    <XLang Include="Orchestrations\SAP.odx">
+      <TypeName>SAP</TypeName>
+      <Namespace>BizTalkPrintSystem.Orchestrations</Namespace>
+      <SubType>Task</SubType>
+    </XLang>
+  </ItemGroup>
+  <ItemGroup>
+    <Schema Include="Schemas\AddUser.xsd">
+      <TypeName>AddUser</TypeName>
+      <Namespace>BizTalkPrintSystem.Orchestrations</Namespace>
+      <SubType>Task</SubType>
+    </Schema>
+  </ItemGroup>
+  <ItemGroup>
+    <Schema Include="Schemas\NewUser.xsd">
+      <TypeName>NewUser</TypeName>
+      <Namespace>BizTalkPrintSystem.Schemas</Namespace>
+      <SubType>Task</SubType>
+    </Schema>
+  </ItemGroup>
+  <ItemGroup>
+    <Schema Include="Schemas\User.xsd">
+      <TypeName>User</TypeName>
+      <Namespace>BizTalkPrintSystem.Schemas</Namespace>
+      <SubType>Task</SubType>
+    </Schema>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Messages_Templates\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Schema Include="Schemas\SOAP_AddUser.xsd">
+      <TypeName>SOAP_AddUser</TypeName>
+      <Namespace>BizTalkPrintSystem.Schemas</Namespace>
+      <SubType>Task</SubType>
+    </Schema>
+    <Schema Include="Schemas\SOAP_AddUser1.xsd">
+      <TypeName>SOAP_AddUser1</TypeName>
+      <Namespace>BizTalkPrintSystem.Schemas</Namespace>
+      <SubType>Task</SubType>
+    </Schema>
+  </ItemGroup>
+  <ItemGroup>
+    <Schema Include="Schemas\SOAP_Account.xsd">
+      <TypeName>SOAP_Account</TypeName>
+      <Namespace>BizTalkPrintSystem.Schemas</Namespace>
+      <SubType>Task</SubType>
+    </Schema>
+    <Schema Include="Schemas\SOAP_Account1.xsd">
+      <TypeName>SOAP_Account1</TypeName>
+      <Namespace>BizTalkPrintSystem.Schemas</Namespace>
+      <SubType>Task</SubType>
+    </Schema>
+  </ItemGroup>
+  <ItemGroup>
+    <Map Include="Maps\SOAP_Account_To_User.btm">
+      <TypeName>SOAP_Account_To_User</TypeName>
+      <Namespace>BizTalkPrintSystem.Maps</Namespace>
+      <SubType>Task</SubType>
+    </Map>
+  </ItemGroup>
+  <ItemGroup>
+    <Map Include="Maps\NewUser_To_SOAP_AddUser.btm">
+      <TypeName>NewUser_To_SOAP_AddUser</TypeName>
+      <Namespace>BizTalkPrintSystem.Maps</Namespace>
+      <SubType>Task</SubType>
+    </Map>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\BizTalk\BizTalkC.targets" />
