@@ -6,9 +6,9 @@ namespace BizTalkPrintSystem.Schemas {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [SchemaType(SchemaTypeEnum.Document)]
-    [Schema(@"",@"User")]
+    [Schema(@"",@"NewUser")]
     [System.SerializableAttribute()]
-    [SchemaRoots(new string[] {@"User"})]
+    [SchemaRoots(new string[] {@"NewUser"})]
     public sealed class NewUser : Microsoft.XLANGs.BaseTypes.SchemaBase {
         
         [System.NonSerializedAttribute()]
@@ -17,7 +17,7 @@ namespace BizTalkPrintSystem.Schemas {
         [System.NonSerializedAttribute()]
         private const string _strSchema = @"<?xml version=""1.0"" encoding=""utf-16""?>
 <xs:schema xmlns:b=""http://schemas.microsoft.com/BizTalk/2003"" attributeFormDefault=""unqualified"" elementFormDefault=""qualified"" xmlns:xs=""http://www.w3.org/2001/XMLSchema"">
-  <xs:element name=""User"">
+  <xs:element name=""NewUser"">
     <xs:complexType>
       <xs:sequence>
         <xs:element name=""Username"" type=""xs:string"" />
@@ -39,7 +39,7 @@ namespace BizTalkPrintSystem.Schemas {
         public override string[] RootNodes {
             get {
                 string[] _RootElements = new string [1];
-                _RootElements[0] = "User";
+                _RootElements[0] = "NewUser";
                 return _RootElements;
             }
         }

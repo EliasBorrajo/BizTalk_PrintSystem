@@ -189,7 +189,7 @@
                     <om:Property Name="InPipeline" Value="Microsoft.BizTalk.DefaultPipelines.XMLReceive" />
                     <om:Property Name="OutPipeline" Value="Microsoft.BizTalk.DefaultPipelines.XMLTransmit" />
                     <om:Property Name="TransportType" Value="FILE" />
-                    <om:Property Name="URI" Value="C:\AllFiles\Project\FilesSystem\SAP\IN" />
+                    <om:Property Name="URI" Value="C:\AllFiles\Project\FilesSystem\SAP\IN\*.xml" />
                     <om:Property Name="IsDynamic" Value="False" />
                     <om:Property Name="Signal" Value="False" />
                 </om:Element>
@@ -226,7 +226,7 @@
                     <om:Property Name="InPipeline" Value="Microsoft.BizTalk.DefaultPipelines.XMLReceive" />
                     <om:Property Name="OutPipeline" Value="Microsoft.BizTalk.DefaultPipelines.XMLTransmit" />
                     <om:Property Name="TransportType" Value="FILE" />
-                    <om:Property Name="URI" Value="C:\AllFiles\Project\FilesSystem\PrintSystem\OUT" />
+                    <om:Property Name="URI" Value="C:\AllFiles\Project\FilesSystem\PrintSystem\OUT\user.xml" />
                     <om:Property Name="IsDynamic" Value="False" />
                     <om:Property Name="Signal" Value="False" />
                 </om:Element>
@@ -290,11 +290,11 @@ module BizTalkPrintSystem
     [Microsoft.XLANGs.BaseTypes.BPELExportable(false)]
     internal service SAP
     {
-        [Microsoft.XLANGs.BaseTypes.PhysicalBinding("FILE", "C:\\AllFiles\\Project\\FilesSystem\\SAP\\IN", typeof(Microsoft.BizTalk.DefaultPipelines.XMLReceive))]
+        [Microsoft.XLANGs.BaseTypes.PhysicalBinding("FILE", "C:\\AllFiles\\Project\\FilesSystem\\SAP\\IN\\*.xml", typeof(Microsoft.BizTalk.DefaultPipelines.XMLReceive))]
         port implements IN_OneWay SAP_In;
         [Microsoft.XLANGs.BaseTypes.LogicalBinding()]
         port uses WS_AddUser WebService;
-        [Microsoft.XLANGs.BaseTypes.PhysicalBinding("FILE", "C:\\AllFiles\\Project\\FilesSystem\\PrintSystem\\OUT", typeof(Microsoft.BizTalk.DefaultPipelines.XMLTransmit))]
+        [Microsoft.XLANGs.BaseTypes.PhysicalBinding("FILE", "C:\\AllFiles\\Project\\FilesSystem\\PrintSystem\\OUT\\user.xml", typeof(Microsoft.BizTalk.DefaultPipelines.XMLTransmit))]
         port uses FileSystem_User_In FileSystem_User;
         message Schemas.NewUser msgNewUser;
         message Schemas.User msgUser;

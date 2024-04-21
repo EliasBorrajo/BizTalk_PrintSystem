@@ -9,9 +9,9 @@ namespace BizTalkPrintSystem.Maps {
 <xsl:stylesheet xmlns:xsl=""http://www.w3.org/1999/XSL/Transform"" xmlns:msxsl=""urn:schemas-microsoft-com:xslt"" xmlns:var=""http://schemas.microsoft.com/BizTalk/2003/var"" exclude-result-prefixes=""msxsl var"" version=""1.0"" xmlns:ns0=""http://schemas.xmlsoap.org/soap/envelope/"" xmlns:tem=""http://tempuri.org/"">
   <xsl:output omit-xml-declaration=""yes"" method=""xml"" version=""1.0"" />
   <xsl:template match=""/"">
-    <xsl:apply-templates select=""/User"" />
+    <xsl:apply-templates select=""/NewUser"" />
   </xsl:template>
-  <xsl:template match=""/User"">
+  <xsl:template match=""/NewUser"">
     <ns0:Envelope>
       <ns0:Body>
         <tem:AddUser>

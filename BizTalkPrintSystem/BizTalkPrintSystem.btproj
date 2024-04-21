@@ -80,13 +80,6 @@
     </Schema>
   </ItemGroup>
   <ItemGroup>
-    <Pipeline Include="Pipelines\SendPipeline_DELETE.btp">
-      <TypeName>SendPipeline_DELETE</TypeName>
-      <Namespace>BizTalkPrintSystem.Pipelines</Namespace>
-      <SubType>Task</SubType>
-    </Pipeline>
-  </ItemGroup>
-  <ItemGroup>
     <Schema Include="Schemas\UserOut.xsd">
       <TypeName>UserOut</TypeName>
       <Namespace>BizTalkPrintSystem.Schemas</Namespace>
@@ -170,6 +163,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Messages_Templates\" />
+    <Folder Include="Pipelines\" />
   </ItemGroup>
   <ItemGroup>
     <Schema Include="Schemas\SOAP_AddUser.xsd">
@@ -210,6 +204,7 @@
     </Map>
   </ItemGroup>
   <ItemGroup>
+    <None Include="PrintSystem.snk" />
     <None Include="SN_KeyFile\AdvWorks.snk" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
