@@ -21,7 +21,7 @@ namespace BizTalkPrintSystem.Pipelines
 "\"Encode\" minOccurs=\"0\" maxOccurs=\"-1\" execMethod=\"All\" stageId=\"9d0e4108-4cce-4536-83fa-4a5040674ad6"+
 "\" />      <Components />    </Stage>  </Stages></Document>";
         
-        private const string _versionDependentGuid = "6bca8765-c20b-437e-802d-66e63e5d2f66";
+        private const string _versionDependentGuid = "c184d609-a91b-48b9-b877-7d8cfc435093";
         
         public SendPipeline_DELETE()
         {
