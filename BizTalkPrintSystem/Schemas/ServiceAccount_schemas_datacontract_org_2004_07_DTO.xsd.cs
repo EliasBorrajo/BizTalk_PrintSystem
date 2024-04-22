@@ -6,28 +6,30 @@ namespace BizTalkPrintSystem.Schemas {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [SchemaType(SchemaTypeEnum.Document)]
-    [Schema(@"http://tempuri.org/",@"AddUser")]
+    [Schema(@"http://schemas.datacontract.org/2004/07/DTO",@"Account")]
     [System.SerializableAttribute()]
-    [SchemaRoots(new string[] {@"AddUser"})]
-    public sealed class SOAP_AddUser1 : Microsoft.XLANGs.BaseTypes.SchemaBase {
+    [SchemaRoots(new string[] {@"Account"})]
+    public sealed class ServiceAccount_schemas_datacontract_org_2004_07_DTO : Microsoft.XLANGs.BaseTypes.SchemaBase {
         
         [System.NonSerializedAttribute()]
         private static object _rawSchema;
         
         [System.NonSerializedAttribute()]
         private const string _strSchema = @"<?xml version=""1.0"" encoding=""utf-16""?>
-<xs:schema xmlns:b=""http://schemas.microsoft.com/BizTalk/2003"" xmlns:tns=""http://tempuri.org/"" attributeFormDefault=""unqualified"" elementFormDefault=""qualified"" targetNamespace=""http://tempuri.org/"" xmlns:xs=""http://www.w3.org/2001/XMLSchema"">
-  <xs:element name=""AddUser"">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element name=""Username"" type=""xs:string"" />
-        <xs:element name=""CardID"" type=""xs:int"" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
+<xs:schema xmlns:b=""http://schemas.microsoft.com/BizTalk/2003"" xmlns:tns=""http://schemas.datacontract.org/2004/07/DTO"" elementFormDefault=""qualified"" targetNamespace=""http://schemas.datacontract.org/2004/07/DTO"" xmlns:xs=""http://www.w3.org/2001/XMLSchema"">
+  <xs:complexType name=""Account"">
+    <xs:sequence>
+      <xs:element minOccurs=""0"" name=""AccountAmount"" type=""xs:double"" />
+      <xs:element minOccurs=""0"" name=""CardID"" type=""xs:int"" />
+      <xs:element minOccurs=""0"" name=""QuotaFeuilles"" type=""xs:int"" />
+      <xs:element minOccurs=""0"" name=""UiD"" type=""xs:int"" />
+      <xs:element minOccurs=""0"" name=""Username"" nillable=""true"" type=""xs:string"" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name=""Account"" nillable=""true"" type=""tns:Account"" />
 </xs:schema>";
         
-        public SOAP_AddUser1() {
+        public ServiceAccount_schemas_datacontract_org_2004_07_DTO() {
         }
         
         public override string XmlContent {
@@ -39,7 +41,7 @@ namespace BizTalkPrintSystem.Schemas {
         public override string[] RootNodes {
             get {
                 string[] _RootElements = new string [1];
-                _RootElements[0] = "AddUser";
+                _RootElements[0] = "Account";
                 return _RootElements;
             }
         }
