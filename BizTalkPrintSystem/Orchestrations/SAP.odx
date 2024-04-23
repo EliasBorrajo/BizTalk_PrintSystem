@@ -203,10 +203,11 @@
                     <om:Property Name="Name" Value="User already exist ?" />
                     <om:Property Name="Signal" Value="True" />
                     <om:Element Type="DecisionBranch" OID="cd144f68-fae4-4863-8ed8-321bc6976c27" ParentLink="ReallyComplexStatement_Branch" LowerBound="60.13" HigherBound="63.1">
+                        <om:Property Name="Expression" Value="if ( xpath(msgUserRenamed, &quot;string(/*[local-name()='User']/*[local-name()='Username'])&quot;) equals &quot;AlreadyExists&quot; ||&#xD;&#xA;     xpath(msgUserRenamed, &quot;string(/*[local-name()='User']/*[local-name()='Username'])&quot;) == &quot;AlreadyExists&quot;&#xD;&#xA;   )&#xD;&#xA;{&#xD;&#xA;&#xD;&#xA;}&#xD;&#xA;" />
                         <om:Property Name="IsGhostBranch" Value="True" />
                         <om:Property Name="ReportToAnalyst" Value="True" />
-                        <om:Property Name="Name" Value="Rule_1" />
-                        <om:Property Name="Signal" Value="False" />
+                        <om:Property Name="Name" Value="No" />
+                        <om:Property Name="Signal" Value="True" />
                         <om:Element Type="Construct" OID="cf6ab27a-3f5d-4435-9ab5-74992b08def8" ParentLink="ComplexStatement_Statement">
                             <om:Property Name="ReportToAnalyst" Value="True" />
                             <om:Property Name="Name" Value="Rename File" />
@@ -239,9 +240,10 @@
                         <om:Property Name="Name" Value="Else" />
                         <om:Property Name="Signal" Value="False" />
                         <om:Element Type="Terminate" OID="4c401e1a-cef1-4aa1-99f6-eb8097f06d76" ParentLink="ComplexStatement_Statement" LowerBound="65.1" HigherBound="67.1">
+                            <om:Property Name="ErrorMessage" Value="&quot;Process terminated, User already exists in the DB&quot;;&#xD;&#xA;" />
                             <om:Property Name="ReportToAnalyst" Value="True" />
                             <om:Property Name="Name" Value="Terminate_1" />
-                            <om:Property Name="Signal" Value="False" />
+                            <om:Property Name="Signal" Value="True" />
                         </om:Element>
                     </om:Element>
                 </om:Element>
@@ -368,12 +370,12 @@ module BizTalkPrintSystem
             }
             [Microsoft.XLANGs.BaseTypes.DesignerPosition("1720fcdb-24fb-432f-945e-ee150a8fe519")]
             if(true) { 
-#error "No Expression." 
+#error "The expression you have entered is not valid." 
 }
             else 
             {
-
-#error "Invalid or missing expression. The expression must return a string."
+                [Microsoft.XLANGs.BaseTypes.DesignerPosition("4c401e1a-cef1-4aa1-99f6-eb8097f06d76")]
+                terminate "Process terminated, User already exists in the DB";;
             }
         }
     }
