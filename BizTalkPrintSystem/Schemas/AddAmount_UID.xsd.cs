@@ -20,8 +20,8 @@ namespace BizTalkPrintSystem.Schemas {
   <xs:element name=""AddAmount"">
     <xs:complexType>
       <xs:sequence>
-        <xs:element name=""UserName"" type=""xs:string"" />
         <xs:element name=""UID"" type=""xs:int"" />
+        <xs:element name=""Amount"" type=""xs:double"" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
