@@ -140,17 +140,17 @@
                     <om:Property Name="Name" Value="Prepare to PrintSystem" />
                     <om:Property Name="Signal" Value="True" />
                     <om:Element Type="Transform" OID="64efb4ad-907d-421a-b305-a1c347a69f2d" ParentLink="ComplexStatement_Statement" LowerBound="55.1" HigherBound="57.1">
-                        <om:Property Name="ClassName" Value="BizTalkPrintSystem.Transform_1" />
+                        <om:Property Name="ClassName" Value="BizTalkPrintSystem.Maps.SOAPAccount_To_User" />
                         <om:Property Name="ReportToAnalyst" Value="True" />
-                        <om:Property Name="Name" Value="Transform_1" />
-                        <om:Property Name="Signal" Value="False" />
-                        <om:Element Type="MessagePartRef" OID="e554dbd8-c98e-408d-bd71-5c0b4ff4aafb" ParentLink="Transform_InputMessagePartRef" LowerBound="56.71" HigherBound="56.91">
+                        <om:Property Name="Name" Value="SOAP_Account" />
+                        <om:Property Name="Signal" Value="True" />
+                        <om:Element Type="MessagePartRef" OID="d817f035-dfca-4546-b74f-36e25087b620" ParentLink="Transform_InputMessagePartRef" LowerBound="56.84" HigherBound="56.104">
                             <om:Property Name="MessageRef" Value="msgSoapReturnAccount" />
                             <om:Property Name="ReportToAnalyst" Value="True" />
                             <om:Property Name="Name" Value="MessagePartReference_3" />
                             <om:Property Name="Signal" Value="False" />
                         </om:Element>
-                        <om:Element Type="MessagePartRef" OID="8e853180-fc4f-4492-8e7a-d6298569b212" ParentLink="Transform_OutputMessagePartRef" LowerBound="56.28" HigherBound="56.35">
+                        <om:Element Type="MessagePartRef" OID="ac1d96e7-eb3a-45d2-85bd-370d9a5e3ada" ParentLink="Transform_OutputMessagePartRef" LowerBound="56.28" HigherBound="56.35">
                             <om:Property Name="MessageRef" Value="msgUser" />
                             <om:Property Name="ReportToAnalyst" Value="True" />
                             <om:Property Name="Name" Value="MessagePartReference_4" />
@@ -164,12 +164,12 @@
                     </om:Element>
                 </om:Element>
                 <om:Element Type="Send" OID="0e3a6bc3-c4be-4b1a-9229-d07872355dc9" ParentLink="ServiceBody_Statement" LowerBound="58.1" HigherBound="60.1">
-                    <om:Property Name="PortName" Value="FileSystem_User" />
+                    <om:Property Name="PortName" Value="PrintSystem_User" />
                     <om:Property Name="MessageName" Value="msgUser" />
                     <om:Property Name="OperationName" Value="GetUser" />
                     <om:Property Name="OperationMessageName" Value="Request" />
                     <om:Property Name="ReportToAnalyst" Value="True" />
-                    <om:Property Name="Name" Value="Send_1" />
+                    <om:Property Name="Name" Value="User.xml" />
                     <om:Property Name="Signal" Value="True" />
                 </om:Element>
             </om:Element>
@@ -220,8 +220,8 @@
                 <om:Property Name="Type" Value="BizTalkPrintSystem.FileSystem_User_In" />
                 <om:Property Name="ParamDirection" Value="In" />
                 <om:Property Name="ReportToAnalyst" Value="True" />
-                <om:Property Name="Name" Value="FileSystem_User" />
-                <om:Property Name="Signal" Value="False" />
+                <om:Property Name="Name" Value="PrintSystem_User" />
+                <om:Property Name="Signal" Value="True" />
                 <om:Element Type="PhysicalBindingAttribute" OID="1039d6e5-4cf9-40d8-8ced-df1edde6b8c1" ParentLink="PortDeclaration_CLRAttribute" LowerBound="32.1" HigherBound="33.1">
                     <om:Property Name="InPipeline" Value="Microsoft.BizTalk.DefaultPipelines.XMLReceive" />
                     <om:Property Name="OutPipeline" Value="Microsoft.BizTalk.DefaultPipelines.XMLTransmit" />
@@ -295,7 +295,7 @@ module BizTalkPrintSystem
         [Microsoft.XLANGs.BaseTypes.LogicalBinding()]
         port uses WS_AddUser WebService;
         [Microsoft.XLANGs.BaseTypes.PhysicalBinding("FILE", "C:\\AllFiles\\Project\\FilesSystem\\PrintSystem\\OUT\\user.xml", typeof(Microsoft.BizTalk.DefaultPipelines.XMLTransmit))]
-        port uses FileSystem_User_In FileSystem_User;
+        port uses FileSystem_User_In PrintSystem_User;
         message Schemas.NewUser msgNewUser;
         message Schemas.User msgUser;
         message Schemas.ServiceAccount_tempuri_org.AddUser msgSoapAddUser;
@@ -318,10 +318,10 @@ module BizTalkPrintSystem
             construct msgUser
             {
                 [Microsoft.XLANGs.BaseTypes.DesignerPosition("64efb4ad-907d-421a-b305-a1c347a69f2d")]
-                transform (msgUser) = BizTalkPrintSystem.Transform_1 (msgSoapReturnAccount);
+                transform (msgUser) = BizTalkPrintSystem.Maps.SOAPAccount_To_User (msgSoapReturnAccount);
             }
             [Microsoft.XLANGs.BaseTypes.DesignerPosition("0e3a6bc3-c4be-4b1a-9229-d07872355dc9")]
-            send (FileSystem_User.GetUser, msgUser);
+            send (PrintSystem_User.GetUser, msgUser);
         }
     }
 }

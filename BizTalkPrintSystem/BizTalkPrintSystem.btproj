@@ -192,9 +192,9 @@
     </Map>
   </ItemGroup>
   <ItemGroup>
-    <Map Include="Transform_1.btm">
-      <TypeName>Transform_1</TypeName>
-      <Namespace>BizTalkPrintSystem</Namespace>
+    <Map Include="Maps\SOAPAccount_To_User.btm">
+      <TypeName>SOAPAccount_To_User</TypeName>
+      <Namespace>BizTalkPrintSystem.Maps</Namespace>
       <SubType>Task</SubType>
     </Map>
   </ItemGroup>
