@@ -198,6 +198,27 @@
       <SubType>Task</SubType>
     </Map>
   </ItemGroup>
+  <ItemGroup>
+    <XLang Include="Orchestrations\PayOnline.odx">
+      <TypeName>PayOnline</TypeName>
+      <Namespace>BizTalkPrintSystem.Orchestrations</Namespace>
+      <SubType>Task</SubType>
+    </XLang>
+  </ItemGroup>
+  <ItemGroup>
+    <Map Include="Maps\AddUsers_To_SOAPAddUser_By_Username.btm">
+      <TypeName>AddUsers_To_SOAPAddUser_By_Username</TypeName>
+      <Namespace>BizTalkPrintSystem.Maps</Namespace>
+      <SubType>Task</SubType>
+    </Map>
+  </ItemGroup>
+  <ItemGroup>
+    <Map Include="Maps\SOAP_AddAmountByUsername_ReturnAccount_To_User.btm">
+      <TypeName>SOAP_AddAmountByUsername_ReturnAccount_To_User</TypeName>
+      <Namespace>BizTalkPrintSystem.Maps</Namespace>
+      <SubType>Task</SubType>
+    </Map>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\BizTalk\BizTalkC.targets" />
 </Project>

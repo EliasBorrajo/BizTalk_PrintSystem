@@ -1,0 +1,354 @@
+﻿#if __DESIGNER_DATA
+#error Do not define __DESIGNER_DATA.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<om:MetaModel MajorVersion="1" MinorVersion="3" Core="2b131234-7959-458d-834f-2dc0769ce683" ScheduleModel="66366196-361d-448d-976f-cab5e87496d2" xmlns:om="http://schemas.microsoft.com/BizTalk/2003/DesignerData">
+    <om:Element Type="Module" OID="b42a967c-1371-466b-ad55-4356c58dc11f" LowerBound="1.1" HigherBound="70.1">
+        <om:Property Name="ReportToAnalyst" Value="True" />
+        <om:Property Name="Name" Value="BizTalkPrintSystem" />
+        <om:Property Name="Signal" Value="False" />
+        <om:Element Type="PortType" OID="43fcd072-fa9f-4b07-b3ce-fc25bcca1b46" ParentLink="Module_PortType" LowerBound="4.1" HigherBound="11.1">
+            <om:Property Name="Synchronous" Value="False" />
+            <om:Property Name="TypeModifier" Value="Internal" />
+            <om:Property Name="ReportToAnalyst" Value="True" />
+            <om:Property Name="Name" Value="GetTransaction" />
+            <om:Property Name="Signal" Value="False" />
+            <om:Element Type="OperationDeclaration" OID="9d479764-8e03-41ad-a559-05ded014c717" ParentLink="PortType_OperationDeclaration" LowerBound="6.1" HigherBound="10.1">
+                <om:Property Name="OperationType" Value="OneWay" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="Transaction" />
+                <om:Property Name="Signal" Value="True" />
+                <om:Element Type="MessageRef" OID="44aa15a1-26a1-4974-869e-226609101462" ParentLink="OperationDeclaration_RequestMessageRef" LowerBound="8.13" HigherBound="8.30">
+                    <om:Property Name="Ref" Value="BizTalkPrintSystem.Schemas.AddAmount" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Request" />
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+            </om:Element>
+        </om:Element>
+        <om:Element Type="PortType" OID="beb068ec-813d-4e49-a872-08da89ff77f5" ParentLink="Module_PortType" LowerBound="11.1" HigherBound="18.1">
+            <om:Property Name="Synchronous" Value="True" />
+            <om:Property Name="TypeModifier" Value="Internal" />
+            <om:Property Name="ReportToAnalyst" Value="True" />
+            <om:Property Name="Name" Value="WS_AddAmount_Username" />
+            <om:Property Name="Signal" Value="False" />
+            <om:Element Type="OperationDeclaration" OID="a5508e26-cab0-4380-b64c-34dfe290b909" ParentLink="PortType_OperationDeclaration" LowerBound="13.1" HigherBound="17.1">
+                <om:Property Name="OperationType" Value="RequestResponse" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="AddAmountByUsername" />
+                <om:Property Name="Signal" Value="True" />
+                <om:Element Type="MessageRef" OID="3e4dc871-7589-4027-ba14-ffd72d0b4256" ParentLink="OperationDeclaration_RequestMessageRef" LowerBound="15.13" HigherBound="15.67">
+                    <om:Property Name="Ref" Value="BizTalkPrintSystem.Schemas.ServiceAccount_tempuri_org.AddAmountByUsername" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Request" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+                <om:Element Type="MessageRef" OID="c293efd0-5562-4f77-93c2-9d09e870b637" ParentLink="OperationDeclaration_ResponseMessageRef" LowerBound="15.69" HigherBound="15.131">
+                    <om:Property Name="Ref" Value="BizTalkPrintSystem.Schemas.ServiceAccount_tempuri_org.AddAmountByUsernameResponse" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Response" />
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+            </om:Element>
+        </om:Element>
+        <om:Element Type="PortType" OID="0ed2b7cf-089b-4409-a250-62d451e5d101" ParentLink="Module_PortType" LowerBound="18.1" HigherBound="25.1">
+            <om:Property Name="Synchronous" Value="False" />
+            <om:Property Name="TypeModifier" Value="Internal" />
+            <om:Property Name="ReportToAnalyst" Value="True" />
+            <om:Property Name="Name" Value="PrintSystem_User_In" />
+            <om:Property Name="Signal" Value="False" />
+            <om:Element Type="OperationDeclaration" OID="a797f0b3-7a4b-4dd7-9505-b5c9ce76f83e" ParentLink="PortType_OperationDeclaration" LowerBound="20.1" HigherBound="24.1">
+                <om:Property Name="OperationType" Value="OneWay" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="GetUser" />
+                <om:Property Name="Signal" Value="True" />
+                <om:Element Type="MessageRef" OID="2d88b0a7-f45f-4943-b190-67958ec9532b" ParentLink="OperationDeclaration_RequestMessageRef" LowerBound="22.13" HigherBound="22.25">
+                    <om:Property Name="Ref" Value="BizTalkPrintSystem.Schemas.User" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Request" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+            </om:Element>
+        </om:Element>
+        <om:Element Type="PortType" OID="d6b2225a-1ca1-40da-be28-33e515b5cfa2" ParentLink="Module_PortType" LowerBound="25.1" HigherBound="32.1">
+            <om:Property Name="Synchronous" Value="False" />
+            <om:Property Name="TypeModifier" Value="Internal" />
+            <om:Property Name="ReportToAnalyst" Value="True" />
+            <om:Property Name="Name" Value="PrintSystem_User_In_FromPayOnline" />
+            <om:Property Name="Signal" Value="False" />
+            <om:Element Type="OperationDeclaration" OID="6ebf231f-a1f7-4ad0-bca9-111badf3e50a" ParentLink="PortType_OperationDeclaration" LowerBound="27.1" HigherBound="31.1">
+                <om:Property Name="OperationType" Value="OneWay" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="Operation_1" />
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="MessageRef" OID="40f0e820-9c8e-4cdf-83e8-f988f33b3259" ParentLink="OperationDeclaration_RequestMessageRef" LowerBound="29.13" HigherBound="29.25">
+                    <om:Property Name="Ref" Value="BizTalkPrintSystem.Schemas.User" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Request" />
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+            </om:Element>
+        </om:Element>
+        <om:Element Type="ServiceDeclaration" OID="1c1124b5-06dc-4522-8505-138727aa34c1" ParentLink="Module_ServiceDeclaration" LowerBound="32.1" HigherBound="69.1">
+            <om:Property Name="InitializedTransactionType" Value="False" />
+            <om:Property Name="IsInvokable" Value="False" />
+            <om:Property Name="TypeModifier" Value="Internal" />
+            <om:Property Name="ReportToAnalyst" Value="True" />
+            <om:Property Name="Name" Value="PayOnline" />
+            <om:Property Name="Signal" Value="False" />
+            <om:Element Type="ServiceBody" OID="61205259-ac6f-4cc5-b306-b455426faba4" ParentLink="ServiceDeclaration_ServiceBody">
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="Receive" OID="a6daee2a-a3bc-4bb4-9dfd-7d5a136be5a8" ParentLink="ServiceBody_Statement" LowerBound="47.1" HigherBound="49.1">
+                    <om:Property Name="Activate" Value="True" />
+                    <om:Property Name="PortName" Value="PayOnline_In" />
+                    <om:Property Name="MessageName" Value="msgAddAmount" />
+                    <om:Property Name="OperationName" Value="Transaction" />
+                    <om:Property Name="OperationMessageName" Value="Request" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="TransactionAdd" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+                <om:Element Type="Construct" OID="a93410b6-adc9-4de8-b5e1-56a2c1878fce" ParentLink="ServiceBody_Statement" LowerBound="49.1" HigherBound="55.1">
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Prepare to SOAP" />
+                    <om:Property Name="Signal" Value="True" />
+                    <om:Element Type="Transform" OID="118a3895-102a-4e88-ae4a-6e9334a64f6c" ParentLink="ComplexStatement_Statement" LowerBound="52.1" HigherBound="54.1">
+                        <om:Property Name="ClassName" Value="BizTalkPrintSystem.Maps.AddUsers_To_SOAPAddUser_By_Username" />
+                        <om:Property Name="ReportToAnalyst" Value="True" />
+                        <om:Property Name="Name" Value="SOAP_AddAmount" />
+                        <om:Property Name="Signal" Value="False" />
+                        <om:Element Type="MessagePartRef" OID="4f96da61-7dde-400d-86da-740809bf4344" ParentLink="Transform_InputMessagePartRef" LowerBound="53.118" HigherBound="53.130">
+                            <om:Property Name="MessageRef" Value="msgAddAmount" />
+                            <om:Property Name="ReportToAnalyst" Value="True" />
+                            <om:Property Name="Name" Value="MessagePartReference_1" />
+                            <om:Property Name="Signal" Value="False" />
+                        </om:Element>
+                        <om:Element Type="MessagePartRef" OID="9e402937-4e15-4bea-ac0b-3703958c1239" ParentLink="Transform_OutputMessagePartRef" LowerBound="53.28" HigherBound="53.53">
+                            <om:Property Name="MessageRef" Value="msgSoapAddAmount_Username" />
+                            <om:Property Name="ReportToAnalyst" Value="True" />
+                            <om:Property Name="Name" Value="MessagePartReference_2" />
+                            <om:Property Name="Signal" Value="False" />
+                        </om:Element>
+                    </om:Element>
+                    <om:Element Type="MessageRef" OID="6a5d65eb-ead7-4a1f-908f-a30f5cd2b916" ParentLink="Construct_MessageRef" LowerBound="50.23" HigherBound="50.48">
+                        <om:Property Name="Ref" Value="msgSoapAddAmount_Username" />
+                        <om:Property Name="ReportToAnalyst" Value="True" />
+                        <om:Property Name="Signal" Value="False" />
+                    </om:Element>
+                </om:Element>
+                <om:Element Type="Send" OID="7964087a-bc11-4dc7-872a-53b45fd5e720" ParentLink="ServiceBody_Statement" LowerBound="55.1" HigherBound="57.1">
+                    <om:Property Name="PortName" Value="WebService" />
+                    <om:Property Name="MessageName" Value="msgSoapAddAmount_Username" />
+                    <om:Property Name="OperationName" Value="AddAmountByUsername" />
+                    <om:Property Name="OperationMessageName" Value="Request" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Call API" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+                <om:Element Type="Receive" OID="c8fbb72f-b061-4ddd-a245-e36a7506ac30" ParentLink="ServiceBody_Statement" LowerBound="57.1" HigherBound="59.1">
+                    <om:Property Name="Activate" Value="False" />
+                    <om:Property Name="PortName" Value="WebService" />
+                    <om:Property Name="MessageName" Value="msgSoapReturnAccount" />
+                    <om:Property Name="OperationName" Value="AddAmountByUsername" />
+                    <om:Property Name="OperationMessageName" Value="Response" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Return Account" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+                <om:Element Type="Construct" OID="7ab0d452-e358-4238-871f-eb46a6f029a3" ParentLink="ServiceBody_Statement" LowerBound="59.1" HigherBound="65.1">
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Prepare to PrintSystem" />
+                    <om:Property Name="Signal" Value="True" />
+                    <om:Element Type="Transform" OID="a78dbbe3-25c3-4eb5-9bdb-cec850c8692e" ParentLink="ComplexStatement_Statement" LowerBound="62.1" HigherBound="64.1">
+                        <om:Property Name="ClassName" Value="BizTalkPrintSystem.Maps.SOAP_AddAmountByUsername_ReturnAccount_To_User" />
+                        <om:Property Name="ReportToAnalyst" Value="True" />
+                        <om:Property Name="Name" Value="SOAP_Account_To_User" />
+                        <om:Property Name="Signal" Value="False" />
+                        <om:Element Type="MessagePartRef" OID="089311a1-07f0-48a9-adf6-c63ec3c36d37" ParentLink="Transform_InputMessagePartRef" LowerBound="63.111" HigherBound="63.131">
+                            <om:Property Name="MessageRef" Value="msgSoapReturnAccount" />
+                            <om:Property Name="ReportToAnalyst" Value="True" />
+                            <om:Property Name="Name" Value="MessagePartReference_3" />
+                            <om:Property Name="Signal" Value="False" />
+                        </om:Element>
+                        <om:Element Type="MessagePartRef" OID="f97d3465-7364-4f1a-b284-eab4be0c3af4" ParentLink="Transform_OutputMessagePartRef" LowerBound="63.28" HigherBound="63.35">
+                            <om:Property Name="MessageRef" Value="msgUser" />
+                            <om:Property Name="ReportToAnalyst" Value="True" />
+                            <om:Property Name="Name" Value="MessagePartReference_4" />
+                            <om:Property Name="Signal" Value="False" />
+                        </om:Element>
+                    </om:Element>
+                    <om:Element Type="MessageRef" OID="373a2454-5620-4a53-a2fa-a2bb199d71c2" ParentLink="Construct_MessageRef" LowerBound="60.23" HigherBound="60.30">
+                        <om:Property Name="Ref" Value="msgUser" />
+                        <om:Property Name="ReportToAnalyst" Value="True" />
+                        <om:Property Name="Signal" Value="False" />
+                    </om:Element>
+                </om:Element>
+                <om:Element Type="Send" OID="4cac0a04-e1a3-4288-b270-2e7f852c5ed4" ParentLink="ServiceBody_Statement" LowerBound="65.1" HigherBound="67.1">
+                    <om:Property Name="PortName" Value="PrintSystem" />
+                    <om:Property Name="MessageName" Value="msgUser" />
+                    <om:Property Name="OperationName" Value="Operation_1" />
+                    <om:Property Name="OperationMessageName" Value="Request" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="User.xml" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+            </om:Element>
+            <om:Element Type="PortDeclaration" OID="273293fa-5525-4d6d-8e16-82b805a9e6fa" ParentLink="ServiceDeclaration_PortDeclaration" LowerBound="35.1" HigherBound="37.1">
+                <om:Property Name="PortModifier" Value="Implements" />
+                <om:Property Name="Orientation" Value="Left" />
+                <om:Property Name="PortIndex" Value="-1" />
+                <om:Property Name="IsWebPort" Value="False" />
+                <om:Property Name="OrderedDelivery" Value="False" />
+                <om:Property Name="DeliveryNotification" Value="None" />
+                <om:Property Name="Type" Value="BizTalkPrintSystem.GetTransaction" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="PayOnline_In" />
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="PhysicalBindingAttribute" OID="5a41c00c-53e5-45dd-b201-5a8cc21cbf4f" ParentLink="PortDeclaration_CLRAttribute" LowerBound="35.1" HigherBound="36.1">
+                    <om:Property Name="InPipeline" Value="Microsoft.BizTalk.DefaultPipelines.XMLReceive" />
+                    <om:Property Name="OutPipeline" Value="Microsoft.BizTalk.DefaultPipelines.XMLTransmit" />
+                    <om:Property Name="TransportType" Value="FILE" />
+                    <om:Property Name="URI" Value="C:\AllFiles\Project\FilesSystem\PayOnline\IN\*.xml" />
+                    <om:Property Name="IsDynamic" Value="False" />
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+            </om:Element>
+            <om:Element Type="PortDeclaration" OID="7987670c-ca3f-436f-8f3c-0e73e9cde3b4" ParentLink="ServiceDeclaration_PortDeclaration" LowerBound="37.1" HigherBound="39.1">
+                <om:Property Name="PortModifier" Value="Uses" />
+                <om:Property Name="Orientation" Value="Right" />
+                <om:Property Name="PortIndex" Value="20" />
+                <om:Property Name="IsWebPort" Value="False" />
+                <om:Property Name="OrderedDelivery" Value="False" />
+                <om:Property Name="DeliveryNotification" Value="None" />
+                <om:Property Name="Type" Value="BizTalkPrintSystem.WS_AddAmount_Username" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="WebService" />
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="LogicalBindingAttribute" OID="d045ec5b-342b-4f79-8f8e-f6479b3a63be" ParentLink="PortDeclaration_CLRAttribute" LowerBound="37.1" HigherBound="38.1">
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+            </om:Element>
+            <om:Element Type="PortDeclaration" OID="44c0deec-5b17-46c3-b0c1-76e747236076" ParentLink="ServiceDeclaration_PortDeclaration" LowerBound="39.1" HigherBound="41.1">
+                <om:Property Name="PortModifier" Value="Uses" />
+                <om:Property Name="Orientation" Value="Right" />
+                <om:Property Name="PortIndex" Value="33" />
+                <om:Property Name="IsWebPort" Value="False" />
+                <om:Property Name="OrderedDelivery" Value="False" />
+                <om:Property Name="DeliveryNotification" Value="None" />
+                <om:Property Name="Type" Value="BizTalkPrintSystem.PrintSystem_User_In_FromPayOnline" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="PrintSystem" />
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="PhysicalBindingAttribute" OID="48102924-a480-4ce7-8352-b6bf7ad991ab" ParentLink="PortDeclaration_CLRAttribute" LowerBound="39.1" HigherBound="40.1">
+                    <om:Property Name="InPipeline" Value="Microsoft.BizTalk.DefaultPipelines.XMLReceive" />
+                    <om:Property Name="OutPipeline" Value="Microsoft.BizTalk.DefaultPipelines.XMLTransmit" />
+                    <om:Property Name="TransportType" Value="FILE" />
+                    <om:Property Name="URI" Value="C:\AllFiles\Project\FilesSystem\PrintSystem\OUT\user.xml" />
+                    <om:Property Name="IsDynamic" Value="False" />
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+            </om:Element>
+            <om:Element Type="MessageDeclaration" OID="1f88d6d3-da3f-4f4b-97bf-1b5d0778f7c1" ParentLink="ServiceDeclaration_MessageDeclaration" LowerBound="41.1" HigherBound="42.1">
+                <om:Property Name="Type" Value="BizTalkPrintSystem.Schemas.AddAmount" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="msgAddAmount" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="MessageDeclaration" OID="2ddf14a6-5236-44e6-bfd6-92c9713b17cf" ParentLink="ServiceDeclaration_MessageDeclaration" LowerBound="42.1" HigherBound="43.1">
+                <om:Property Name="Type" Value="BizTalkPrintSystem.Schemas.ServiceAccount_tempuri_org.AddAmountByUsername" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="msgSoapAddAmount_Username" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="MessageDeclaration" OID="0be1a77b-48db-4fde-bc10-19b08919454a" ParentLink="ServiceDeclaration_MessageDeclaration" LowerBound="43.1" HigherBound="44.1">
+                <om:Property Name="Type" Value="BizTalkPrintSystem.Schemas.ServiceAccount_tempuri_org.AddAmountByUsernameResponse" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="msgSoapReturnAccount" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="MessageDeclaration" OID="575028ae-205c-4fc5-89fe-4d488732aa4b" ParentLink="ServiceDeclaration_MessageDeclaration" LowerBound="44.1" HigherBound="45.1">
+                <om:Property Name="Type" Value="BizTalkPrintSystem.Schemas.User" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="msgUser" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+        </om:Element>
+    </om:Element>
+</om:MetaModel>
+#endif // __DESIGNER_DATA
+[Microsoft.XLANGs.BaseTypes.BPELExportable(false)]
+module BizTalkPrintSystem
+{
+    internal porttype GetTransaction
+    {
+        oneway Transaction
+        {
+            Schemas.AddAmount
+        };
+    };
+    internal porttype WS_AddAmount_Username
+    {
+        requestresponse AddAmountByUsername
+        {
+            Schemas.ServiceAccount_tempuri_org.AddAmountByUsername, Schemas.ServiceAccount_tempuri_org.AddAmountByUsernameResponse
+        };
+    };
+    internal porttype PrintSystem_User_In
+    {
+        oneway GetUser
+        {
+            Schemas.User
+        };
+    };
+    internal porttype PrintSystem_User_In_FromPayOnline
+    {
+        oneway Operation_1
+        {
+            Schemas.User
+        };
+    };
+    [Microsoft.XLANGs.BaseTypes.BPELExportable(false)]
+    internal service PayOnline
+    {
+        [Microsoft.XLANGs.BaseTypes.PhysicalBinding("FILE", "C:\\AllFiles\\Project\\FilesSystem\\PayOnline\\IN\\*.xml", typeof(Microsoft.BizTalk.DefaultPipelines.XMLReceive))]
+        port implements GetTransaction PayOnline_In;
+        [Microsoft.XLANGs.BaseTypes.LogicalBinding()]
+        port uses WS_AddAmount_Username WebService;
+        [Microsoft.XLANGs.BaseTypes.PhysicalBinding("FILE", "C:\\AllFiles\\Project\\FilesSystem\\PrintSystem\\OUT\\user.xml", typeof(Microsoft.BizTalk.DefaultPipelines.XMLTransmit))]
+        port uses PrintSystem_User_In_FromPayOnline PrintSystem;
+        message Schemas.AddAmount msgAddAmount;
+        message Schemas.ServiceAccount_tempuri_org.AddAmountByUsername msgSoapAddAmount_Username;
+        message Schemas.ServiceAccount_tempuri_org.AddAmountByUsernameResponse msgSoapReturnAccount;
+        message Schemas.User msgUser;
+        body ()
+        {
+            [Microsoft.XLANGs.BaseTypes.DesignerPosition("a6daee2a-a3bc-4bb4-9dfd-7d5a136be5a8")]
+            activate receive (PayOnline_In.Transaction, msgAddAmount);
+            [Microsoft.XLANGs.BaseTypes.DesignerPosition("a93410b6-adc9-4de8-b5e1-56a2c1878fce")]
+            construct msgSoapAddAmount_Username
+            {
+                [Microsoft.XLANGs.BaseTypes.DesignerPosition("118a3895-102a-4e88-ae4a-6e9334a64f6c")]
+                transform (msgSoapAddAmount_Username) = BizTalkPrintSystem.Maps.AddUsers_To_SOAPAddUser_By_Username (msgAddAmount);
+            }
+            [Microsoft.XLANGs.BaseTypes.DesignerPosition("7964087a-bc11-4dc7-872a-53b45fd5e720")]
+            send (WebService.AddAmountByUsername, msgSoapAddAmount_Username);
+            [Microsoft.XLANGs.BaseTypes.DesignerPosition("c8fbb72f-b061-4ddd-a245-e36a7506ac30")]
+            receive (WebService.AddAmountByUsername, msgSoapReturnAccount);
+            [Microsoft.XLANGs.BaseTypes.DesignerPosition("7ab0d452-e358-4238-871f-eb46a6f029a3")]
+            construct msgUser
+            {
+                [Microsoft.XLANGs.BaseTypes.DesignerPosition("a78dbbe3-25c3-4eb5-9bdb-cec850c8692e")]
+                transform (msgUser) = BizTalkPrintSystem.Maps.SOAP_AddAmountByUsername_ReturnAccount_To_User (msgSoapReturnAccount);
+            }
+            [Microsoft.XLANGs.BaseTypes.DesignerPosition("4cac0a04-e1a3-4288-b270-2e7f852c5ed4")]
+            send (PrintSystem.Operation_1, msgUser);
+        }
+    }
+}
+
