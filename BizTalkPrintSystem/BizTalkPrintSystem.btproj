@@ -182,6 +182,16 @@
       <TypeName>ServiceAccount_tempuri_org</TypeName>
       <SubType>Task</SubType>
     </Schema>
+    <Schema Include="Schemas\AddAmount_Username.xsd">
+      <TypeName>AddAmount_Username</TypeName>
+      <Namespace>BizTalkPrintSystem.Schemas</Namespace>
+      <SubType>Task</SubType>
+    </Schema>
+    <Schema Include="Schemas\AddAmount_UID.xsd">
+      <TypeName>AddAmount_UID</TypeName>
+      <Namespace>BizTalkPrintSystem.Schemas</Namespace>
+      <SubType>Task</SubType>
+    </Schema>
     <None Include="SN_KeyFile\AdvWorks.snk" />
   </ItemGroup>
   <ItemGroup>
