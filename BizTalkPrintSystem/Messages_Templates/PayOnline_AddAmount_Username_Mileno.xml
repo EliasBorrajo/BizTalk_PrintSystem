@@ -1,7 +1,4 @@
-<?xml version="1.0"?>
-<AddAmount>
-
-<UserName>Elias</UserName>
-<Amount>10</Amount>
-
-</AddAmount>
+<ns0:AddAmount xmlns:ns0="http://BizTalkPrintSystem.Schemas.AddAmount_Username">
+  <UserName>Mileno</UserName>
+  <Amount>6</Amount>
+</ns0:AddAmount>
