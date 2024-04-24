@@ -10,8 +10,8 @@
             <om:Property Name="Synchronous" Value="False" />
             <om:Property Name="TypeModifier" Value="Internal" />
             <om:Property Name="ReportToAnalyst" Value="True" />
-            <om:Property Name="Name" Value="GetTransaction" />
-            <om:Property Name="Signal" Value="False" />
+            <om:Property Name="Name" Value="Get_Transaction_by_Username" />
+            <om:Property Name="Signal" Value="True" />
             <om:Element Type="OperationDeclaration" OID="9d479764-8e03-41ad-a559-05ded014c717" ParentLink="PortType_OperationDeclaration" LowerBound="6.1" HigherBound="10.1">
                 <om:Property Name="OperationType" Value="OneWay" />
                 <om:Property Name="ReportToAnalyst" Value="True" />
@@ -29,8 +29,8 @@
             <om:Property Name="Synchronous" Value="True" />
             <om:Property Name="TypeModifier" Value="Internal" />
             <om:Property Name="ReportToAnalyst" Value="True" />
-            <om:Property Name="Name" Value="WS_AddAmount_Username" />
-            <om:Property Name="Signal" Value="False" />
+            <om:Property Name="Name" Value="WS_Add_Amount_by_Username" />
+            <om:Property Name="Signal" Value="True" />
             <om:Element Type="OperationDeclaration" OID="a5508e26-cab0-4380-b64c-34dfe290b909" ParentLink="PortType_OperationDeclaration" LowerBound="13.1" HigherBound="17.1">
                 <om:Property Name="OperationType" Value="RequestResponse" />
                 <om:Property Name="ReportToAnalyst" Value="True" />
@@ -73,8 +73,8 @@
             <om:Property Name="Synchronous" Value="False" />
             <om:Property Name="TypeModifier" Value="Internal" />
             <om:Property Name="ReportToAnalyst" Value="True" />
-            <om:Property Name="Name" Value="PrintSystem_User_In_FromPayOnline" />
-            <om:Property Name="Signal" Value="False" />
+            <om:Property Name="Name" Value="PrintSystem_Return" />
+            <om:Property Name="Signal" Value="True" />
             <om:Element Type="OperationDeclaration" OID="6ebf231f-a1f7-4ad0-bca9-111badf3e50a" ParentLink="PortType_OperationDeclaration" LowerBound="27.1" HigherBound="31.1">
                 <om:Property Name="OperationType" Value="OneWay" />
                 <om:Property Name="ReportToAnalyst" Value="True" />
@@ -227,7 +227,7 @@
                 <om:Property Name="IsWebPort" Value="False" />
                 <om:Property Name="OrderedDelivery" Value="False" />
                 <om:Property Name="DeliveryNotification" Value="None" />
-                <om:Property Name="Type" Value="BizTalkPrintSystem.GetTransaction" />
+                <om:Property Name="Type" Value="BizTalkPrintSystem.Get_Transaction_by_Username" />
                 <om:Property Name="ParamDirection" Value="In" />
                 <om:Property Name="ReportToAnalyst" Value="True" />
                 <om:Property Name="Name" Value="PayOnline_In" />
@@ -248,7 +248,7 @@
                 <om:Property Name="IsWebPort" Value="False" />
                 <om:Property Name="OrderedDelivery" Value="False" />
                 <om:Property Name="DeliveryNotification" Value="None" />
-                <om:Property Name="Type" Value="BizTalkPrintSystem.WS_AddAmount_Username" />
+                <om:Property Name="Type" Value="BizTalkPrintSystem.WS_Add_Amount_by_Username" />
                 <om:Property Name="ParamDirection" Value="In" />
                 <om:Property Name="ReportToAnalyst" Value="True" />
                 <om:Property Name="Name" Value="WebService" />
@@ -264,7 +264,7 @@
                 <om:Property Name="IsWebPort" Value="False" />
                 <om:Property Name="OrderedDelivery" Value="False" />
                 <om:Property Name="DeliveryNotification" Value="None" />
-                <om:Property Name="Type" Value="BizTalkPrintSystem.PrintSystem_User_In_FromPayOnline" />
+                <om:Property Name="Type" Value="BizTalkPrintSystem.PrintSystem_Return" />
                 <om:Property Name="ParamDirection" Value="In" />
                 <om:Property Name="ReportToAnalyst" Value="True" />
                 <om:Property Name="Name" Value="PrintSystem" />
@@ -285,14 +285,14 @@
 [Microsoft.XLANGs.BaseTypes.BPELExportable(false)]
 module BizTalkPrintSystem
 {
-    internal porttype GetTransaction
+    internal porttype Get_Transaction_by_Username
     {
         oneway Transaction
         {
             Schemas.AddAmount_Username
         };
     };
-    internal porttype WS_AddAmount_Username
+    internal porttype WS_Add_Amount_by_Username
     {
         requestresponse AddAmountByUsername
         {
@@ -306,7 +306,7 @@ module BizTalkPrintSystem
             Schemas.User
         };
     };
-    internal porttype PrintSystem_User_In_FromPayOnline
+    internal porttype PrintSystem_Return
     {
         oneway Operation_1
         {
@@ -317,11 +317,11 @@ module BizTalkPrintSystem
     internal service PayOnline
     {
         [Microsoft.XLANGs.BaseTypes.PhysicalBinding("FILE", "C:\\AllFiles\\Project\\FilesSystem\\PayOnline\\IN\\*.xml", typeof(Microsoft.BizTalk.DefaultPipelines.XMLReceive))]
-        port implements GetTransaction PayOnline_In;
+        port implements Get_Transaction_by_Username PayOnline_In;
         [Microsoft.XLANGs.BaseTypes.LogicalBinding()]
-        port uses WS_AddAmount_Username WebService;
+        port uses WS_Add_Amount_by_Username WebService;
         [Microsoft.XLANGs.BaseTypes.PhysicalBinding("FILE", "C:\\AllFiles\\Project\\FilesSystem\\PrintSystem\\OUT\\user.xml", typeof(Microsoft.BizTalk.DefaultPipelines.XMLTransmit))]
-        port uses PrintSystem_User_In_FromPayOnline PrintSystem;
+        port uses PrintSystem_Return PrintSystem;
         message Schemas.ServiceAccount_tempuri_org.AddAmountByUsername msgSoapAddAmount_Username;
         message Schemas.ServiceAccount_tempuri_org.AddAmountByUsernameResponse msgSoapReturnAccount;
         message Schemas.User msgUser;
