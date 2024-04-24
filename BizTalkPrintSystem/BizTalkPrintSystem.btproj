@@ -192,6 +192,21 @@
       <Namespace>BizTalkPrintSystem.Schemas</Namespace>
       <SubType>Task</SubType>
     </Schema>
+    <Schema Include="Schemas\quotaToPrint.xsd">
+      <TypeName>quotaToPrint</TypeName>
+      <Namespace>BizTalkPrintSystem.Schemas</Namespace>
+      <SubType>Task</SubType>
+    </Schema>
+    <Schema Include="Schemas\auth.xsd">
+      <TypeName>auth</TypeName>
+      <Namespace>BizTalkPrintSystem.Schemas</Namespace>
+      <SubType>Task</SubType>
+    </Schema>
+    <Schema Include="Schemas\AuthResult.xsd">
+      <TypeName>AuthResult</TypeName>
+      <Namespace>BizTalkPrintSystem.Schemas</Namespace>
+      <SubType>Task</SubType>
+    </Schema>
     <None Include="SN_KeyFile\AdvWorks.snk" />
   </ItemGroup>
   <ItemGroup>
