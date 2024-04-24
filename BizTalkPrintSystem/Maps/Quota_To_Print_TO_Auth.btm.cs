@@ -2,24 +2,24 @@ namespace BizTalkPrintSystem.Maps {
     
     
     [Microsoft.XLANGs.BaseTypes.SchemaReference(@"BizTalkPrintSystem.Schemas.QuotaToPrint", typeof(global::BizTalkPrintSystem.Schemas.QuotaToPrint))]
-    [Microsoft.XLANGs.BaseTypes.SchemaReference(@"BizTalkPrintSystem.Schemas.ServiceAccount_tempuri_org+dimAmount", typeof(global::BizTalkPrintSystem.Schemas.ServiceAccount_tempuri_org.dimAmount))]
-    public sealed class Quota_to_Print_TO_DimAmount_Request : global::Microsoft.XLANGs.BaseTypes.TransformBase {
+    [Microsoft.XLANGs.BaseTypes.SchemaReference(@"BizTalkPrintSystem.Schemas.Auth", typeof(global::BizTalkPrintSystem.Schemas.Auth))]
+    public sealed class Quota_To_Print_TO_Auth : global::Microsoft.XLANGs.BaseTypes.TransformBase {
         
         private const string _strMap = @"<?xml version=""1.0"" encoding=""UTF-16""?>
-<xsl:stylesheet xmlns:xsl=""http://www.w3.org/1999/XSL/Transform"" xmlns:msxsl=""urn:schemas-microsoft-com:xslt"" xmlns:var=""http://schemas.microsoft.com/BizTalk/2003/var"" exclude-result-prefixes=""msxsl var s0"" version=""1.0"" xmlns:ns0=""http://tempuri.org/"" xmlns:ns1=""http://schemas.datacontract.org/2004/07/DTO"" xmlns:s0=""http://BizTalkPrintSystem.Schemas.quotaToPrint"">
+<xsl:stylesheet xmlns:xsl=""http://www.w3.org/1999/XSL/Transform"" xmlns:msxsl=""urn:schemas-microsoft-com:xslt"" xmlns:var=""http://schemas.microsoft.com/BizTalk/2003/var"" exclude-result-prefixes=""msxsl var s0"" version=""1.0"" xmlns:ns0=""http://BizTalkPrintSystem.Schemas.auth"" xmlns:s0=""http://BizTalkPrintSystem.Schemas.quotaToPrint"">
   <xsl:output omit-xml-declaration=""yes"" method=""xml"" version=""1.0"" />
   <xsl:template match=""/"">
     <xsl:apply-templates select=""/s0:Print"" />
   </xsl:template>
   <xsl:template match=""/s0:Print"">
-    <ns0:dimAmount>
-      <ns0:Username>
+    <ns0:Auth>
+      <username>
         <xsl:value-of select=""Username/text()"" />
-      </ns0:Username>
-      <ns0:QuotaToPrint>
-        <xsl:value-of select=""Quota/text()"" />
-      </ns0:QuotaToPrint>
-    </ns0:dimAmount>
+      </username>
+      <password>
+        <xsl:value-of select=""Password/text()"" />
+      </password>
+    </ns0:Auth>
   </xsl:template>
 </xsl:stylesheet>";
         
@@ -31,9 +31,9 @@ namespace BizTalkPrintSystem.Maps {
         
         private const global::BizTalkPrintSystem.Schemas.QuotaToPrint _srcSchemaTypeReference0 = null;
         
-        private const string _strTrgSchemasList0 = @"BizTalkPrintSystem.Schemas.ServiceAccount_tempuri_org+dimAmount";
+        private const string _strTrgSchemasList0 = @"BizTalkPrintSystem.Schemas.Auth";
         
-        private const global::BizTalkPrintSystem.Schemas.ServiceAccount_tempuri_org.dimAmount _trgSchemaTypeReference0 = null;
+        private const global::BizTalkPrintSystem.Schemas.Auth _trgSchemaTypeReference0 = null;
         
         public override string XmlContent {
             get {
@@ -64,7 +64,7 @@ namespace BizTalkPrintSystem.Maps {
         public override string[] TargetSchemas {
             get {
                 string[] _TrgSchemas = new string [1];
-                _TrgSchemas[0] = @"BizTalkPrintSystem.Schemas.ServiceAccount_tempuri_org+dimAmount";
+                _TrgSchemas[0] = @"BizTalkPrintSystem.Schemas.Auth";
                 return _TrgSchemas;
             }
         }

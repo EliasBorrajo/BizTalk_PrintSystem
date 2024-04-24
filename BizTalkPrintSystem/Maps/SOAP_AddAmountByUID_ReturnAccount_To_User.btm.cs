@@ -6,13 +6,13 @@ namespace BizTalkPrintSystem.Maps {
     public sealed class SOAP_AddAmountByUID_ReturnAccount_To_User : global::Microsoft.XLANGs.BaseTypes.TransformBase {
         
         private const string _strMap = @"<?xml version=""1.0"" encoding=""UTF-16""?>
-<xsl:stylesheet xmlns:xsl=""http://www.w3.org/1999/XSL/Transform"" xmlns:msxsl=""urn:schemas-microsoft-com:xslt"" xmlns:var=""http://schemas.microsoft.com/BizTalk/2003/var"" exclude-result-prefixes=""msxsl var s0 s1"" version=""1.0"" xmlns:s0=""http://schemas.datacontract.org/2004/07/DTO"" xmlns:s1=""http://tempuri.org/"">
+<xsl:stylesheet xmlns:xsl=""http://www.w3.org/1999/XSL/Transform"" xmlns:msxsl=""urn:schemas-microsoft-com:xslt"" xmlns:var=""http://schemas.microsoft.com/BizTalk/2003/var"" exclude-result-prefixes=""msxsl var s0 s1"" version=""1.0"" xmlns:s1=""http://tempuri.org/"" xmlns:s0=""http://schemas.datacontract.org/2004/07/DTO"" xmlns:ns0=""http://BizTalkPrintSystem.Schemas.User"">
   <xsl:output omit-xml-declaration=""yes"" method=""xml"" version=""1.0"" />
   <xsl:template match=""/"">
     <xsl:apply-templates select=""/s1:AddAmountByUIDResponse"" />
   </xsl:template>
   <xsl:template match=""/s1:AddAmountByUIDResponse"">
-    <User>
+    <ns0:User>
       <xsl:if test=""s1:AddAmountByUIDResult/s0:Username"">
         <Username>
           <xsl:value-of select=""s1:AddAmountByUIDResult/s0:Username/text()"" />
@@ -23,7 +23,7 @@ namespace BizTalkPrintSystem.Maps {
           <xsl:value-of select=""s1:AddAmountByUIDResult/s0:QuotaFeuilles/text()"" />
         </Quota>
       </xsl:if>
-    </User>
+    </ns0:User>
   </xsl:template>
 </xsl:stylesheet>";
         

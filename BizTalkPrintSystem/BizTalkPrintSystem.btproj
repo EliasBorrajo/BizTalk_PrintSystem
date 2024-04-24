@@ -192,8 +192,8 @@
       <Namespace>BizTalkPrintSystem.Schemas</Namespace>
       <SubType>Task</SubType>
     </Schema>
-    <Schema Include="Schemas\quotaToPrint.xsd">
-      <TypeName>quotaToPrint</TypeName>
+    <Schema Include="Schemas\QuotaToPrint.xsd">
+      <TypeName>QuotaToPrint</TypeName>
       <Namespace>BizTalkPrintSystem.Schemas</Namespace>
       <SubType>Task</SubType>
     </Schema>
@@ -282,6 +282,13 @@
   <ItemGroup>
     <Map Include="Maps\Quota_to_Print_TO_DimAmount_Request.btm">
       <TypeName>Quota_to_Print_TO_DimAmount_Request</TypeName>
+      <Namespace>BizTalkPrintSystem.Maps</Namespace>
+      <SubType>Task</SubType>
+    </Map>
+  </ItemGroup>
+  <ItemGroup>
+    <Map Include="Maps\Quota_To_Print_TO_Auth.btm">
+      <TypeName>Quota_To_Print_TO_Auth</TypeName>
       <Namespace>BizTalkPrintSystem.Maps</Namespace>
       <SubType>Task</SubType>
     </Map>

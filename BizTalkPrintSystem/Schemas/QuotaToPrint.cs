@@ -9,7 +9,7 @@ namespace BizTalkPrintSystem.Schemas {
     [Schema(@"http://BizTalkPrintSystem.Schemas.quotaToPrint",@"Print")]
     [System.SerializableAttribute()]
     [SchemaRoots(new string[] {@"Print"})]
-    public sealed class QuotaToPrint : Microsoft.XLANGs.BaseTypes.SchemaBase {
+    public sealed class quotaToPrint : Microsoft.XLANGs.BaseTypes.SchemaBase {
         
         [System.NonSerializedAttribute()]
         private static object _rawSchema;
@@ -20,15 +20,14 @@ namespace BizTalkPrintSystem.Schemas {
   <xs:element name=""Print"">
     <xs:complexType>
       <xs:sequence>
-        <xs:element name=""Username"" type=""xs:string"" />
-        <xs:element name=""Quota"" type=""xs:int"" />
-        <xs:element name=""Password"" type=""xs:string"" />
+        <xs:element name=""username"" type=""xs:string"" />
+        <xs:element name=""quota"" type=""xs:int"" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
 </xs:schema>";
         
-        public QuotaToPrint() {
+        public quotaToPrint() {
         }
         
         public override string XmlContent {

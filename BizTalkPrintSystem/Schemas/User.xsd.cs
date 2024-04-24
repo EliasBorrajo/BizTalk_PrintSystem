@@ -6,7 +6,7 @@ namespace BizTalkPrintSystem.Schemas {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [SchemaType(SchemaTypeEnum.Document)]
-    [Schema(@"",@"User")]
+    [Schema(@"http://BizTalkPrintSystem.Schemas.User",@"User")]
     [System.SerializableAttribute()]
     [SchemaRoots(new string[] {@"User"})]
     public sealed class User : Microsoft.XLANGs.BaseTypes.SchemaBase {
@@ -16,7 +16,7 @@ namespace BizTalkPrintSystem.Schemas {
         
         [System.NonSerializedAttribute()]
         private const string _strSchema = @"<?xml version=""1.0"" encoding=""utf-16""?>
-<xs:schema xmlns:b=""http://schemas.microsoft.com/BizTalk/2003"" attributeFormDefault=""unqualified"" elementFormDefault=""qualified"" xmlns:xs=""http://www.w3.org/2001/XMLSchema"">
+<xs:schema xmlns=""http://BizTalkPrintSystem.Schemas.User"" xmlns:b=""http://schemas.microsoft.com/BizTalk/2003"" targetNamespace=""http://BizTalkPrintSystem.Schemas.User"" xmlns:xs=""http://www.w3.org/2001/XMLSchema"">
   <xs:element name=""User"">
     <xs:complexType>
       <xs:sequence>

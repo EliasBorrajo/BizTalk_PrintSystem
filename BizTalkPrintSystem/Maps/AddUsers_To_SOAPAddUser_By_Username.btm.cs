@@ -11,7 +11,16 @@ namespace BizTalkPrintSystem.Maps {
   <xsl:template match=""/"">
     <xsl:apply-templates select=""/s0:AddAmount"" />
   </xsl:template>
-  <xsl:template match=""/s0:AddAmount"" />
+  <xsl:template match=""/s0:AddAmount"">
+    <ns0:AddAmountByUsername>
+      <ns0:Username>
+        <xsl:value-of select=""UserName/text()"" />
+      </ns0:Username>
+      <ns0:QuotaCHF>
+        <xsl:value-of select=""Amount/text()"" />
+      </ns0:QuotaCHF>
+    </ns0:AddAmountByUsername>
+  </xsl:template>
 </xsl:stylesheet>";
         
         private const int _useXSLTransform = 0;
