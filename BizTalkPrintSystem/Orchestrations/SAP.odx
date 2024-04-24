@@ -2,7 +2,7 @@
 #error Do not define __DESIGNER_DATA.
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <om:MetaModel MajorVersion="1" MinorVersion="3" Core="2b131234-7959-458d-834f-2dc0769ce683" ScheduleModel="66366196-361d-448d-976f-cab5e87496d2" xmlns:om="http://schemas.microsoft.com/BizTalk/2003/DesignerData">
-    <om:Element Type="Module" OID="d4d20779-21d1-4f5b-a267-5df2056fe337" LowerBound="1.1" HigherBound="71.1">
+    <om:Element Type="Module" OID="d4d20779-21d1-4f5b-a267-5df2056fe337" LowerBound="1.1" HigherBound="80.1">
         <om:Property Name="ReportToAnalyst" Value="True" />
         <om:Property Name="Name" Value="BizTalkPrintSystem" />
         <om:Property Name="Signal" Value="False" />
@@ -69,7 +69,7 @@
                 </om:Element>
             </om:Element>
         </om:Element>
-        <om:Element Type="ServiceDeclaration" OID="97842603-29f4-4da2-85d6-e82b316bdde4" ParentLink="Module_ServiceDeclaration" LowerBound="25.1" HigherBound="70.1">
+        <om:Element Type="ServiceDeclaration" OID="97842603-29f4-4da2-85d6-e82b316bdde4" ParentLink="Module_ServiceDeclaration" LowerBound="25.1" HigherBound="79.1">
             <om:Property Name="InitializedTransactionType" Value="False" />
             <om:Property Name="IsInvokable" Value="False" />
             <om:Property Name="TypeModifier" Value="Internal" />
@@ -198,30 +198,54 @@
                         <om:Property Name="Signal" Value="False" />
                     </om:Element>
                 </om:Element>
-                <om:Element Type="Construct" OID="cf6ab27a-3f5d-4435-9ab5-74992b08def8" ParentLink="ServiceBody_Statement" LowerBound="59.1" HigherBound="66.1">
+                <om:Element Type="Decision" OID="1720fcdb-24fb-432f-945e-ee150a8fe519" ParentLink="ServiceBody_Statement" LowerBound="59.1" HigherBound="77.1">
                     <om:Property Name="ReportToAnalyst" Value="True" />
-                    <om:Property Name="Name" Value="Rename File" />
+                    <om:Property Name="Name" Value="User already exist ?" />
                     <om:Property Name="Signal" Value="True" />
-                    <om:Element Type="MessageAssignment" OID="45124afc-7793-43e7-8f78-69fe4bada2c0" ParentLink="ComplexStatement_Statement" LowerBound="62.1" HigherBound="65.1">
-                        <om:Property Name="Expression" Value="msgUserRenamed = msgUser;&#xD;&#xA;msgUserRenamed(FILE.ReceivedFileName) = xpath(msgUserRenamed, &quot;string(/*[local-name()='User']/*[local-name()='Username'])&quot;);&#xD;&#xA;" />
-                        <om:Property Name="ReportToAnalyst" Value="False" />
-                        <om:Property Name="Name" Value="MessageAssignment_1" />
-                        <om:Property Name="Signal" Value="True" />
-                    </om:Element>
-                    <om:Element Type="MessageRef" OID="0e52fbc3-5810-46ff-a81d-f770c4f2cbb5" ParentLink="Construct_MessageRef" LowerBound="60.23" HigherBound="60.37">
-                        <om:Property Name="Ref" Value="msgUserRenamed" />
+                    <om:Element Type="DecisionBranch" OID="cd144f68-fae4-4863-8ed8-321bc6976c27" ParentLink="ReallyComplexStatement_Branch" LowerBound="60.13" HigherBound="72.1">
+                        <om:Property Name="Expression" Value="System.Convert.ToString(xpath(msgUser, &quot;string(/*[local-name()='User']/*[local-name()='Username'])&quot;)) != &quot;AlreadyExists&quot;" />
+                        <om:Property Name="IsGhostBranch" Value="True" />
                         <om:Property Name="ReportToAnalyst" Value="True" />
-                        <om:Property Name="Signal" Value="False" />
+                        <om:Property Name="Name" Value="No" />
+                        <om:Property Name="Signal" Value="True" />
+                        <om:Element Type="Construct" OID="cf6ab27a-3f5d-4435-9ab5-74992b08def8" ParentLink="ComplexStatement_Statement" LowerBound="62.1" HigherBound="69.1">
+                            <om:Property Name="ReportToAnalyst" Value="True" />
+                            <om:Property Name="Name" Value="Rename File" />
+                            <om:Property Name="Signal" Value="True" />
+                            <om:Element Type="MessageAssignment" OID="45124afc-7793-43e7-8f78-69fe4bada2c0" ParentLink="ComplexStatement_Statement" LowerBound="65.1" HigherBound="68.1">
+                                <om:Property Name="Expression" Value="msgUserRenamed = msgUser;&#xD;&#xA;msgUserRenamed(FILE.ReceivedFileName) = xpath(msgUserRenamed, &quot;string(/*[local-name()='User']/*[local-name()='Username'])&quot;);&#xD;&#xA;" />
+                                <om:Property Name="ReportToAnalyst" Value="False" />
+                                <om:Property Name="Name" Value="MessageAssignment_1" />
+                                <om:Property Name="Signal" Value="True" />
+                            </om:Element>
+                            <om:Element Type="MessageRef" OID="0e52fbc3-5810-46ff-a81d-f770c4f2cbb5" ParentLink="Construct_MessageRef" LowerBound="63.27" HigherBound="63.41">
+                                <om:Property Name="Ref" Value="msgUserRenamed" />
+                                <om:Property Name="ReportToAnalyst" Value="True" />
+                                <om:Property Name="Signal" Value="False" />
+                            </om:Element>
+                        </om:Element>
+                        <om:Element Type="Send" OID="0e3a6bc3-c4be-4b1a-9229-d07872355dc9" ParentLink="ComplexStatement_Statement" LowerBound="69.1" HigherBound="71.1">
+                            <om:Property Name="PortName" Value="PrintSystem_User" />
+                            <om:Property Name="MessageName" Value="msgUserRenamed" />
+                            <om:Property Name="OperationName" Value="GetUser" />
+                            <om:Property Name="OperationMessageName" Value="Request" />
+                            <om:Property Name="ReportToAnalyst" Value="True" />
+                            <om:Property Name="Name" Value="User.xml" />
+                            <om:Property Name="Signal" Value="True" />
+                        </om:Element>
                     </om:Element>
-                </om:Element>
-                <om:Element Type="Send" OID="0e3a6bc3-c4be-4b1a-9229-d07872355dc9" ParentLink="ServiceBody_Statement" LowerBound="66.1" HigherBound="68.1">
-                    <om:Property Name="PortName" Value="PrintSystem_User" />
-                    <om:Property Name="MessageName" Value="msgUserRenamed" />
-                    <om:Property Name="OperationName" Value="GetUser" />
-                    <om:Property Name="OperationMessageName" Value="Request" />
-                    <om:Property Name="ReportToAnalyst" Value="True" />
-                    <om:Property Name="Name" Value="User.xml" />
-                    <om:Property Name="Signal" Value="True" />
+                    <om:Element Type="DecisionBranch" OID="0fd1a1d3-fb50-42bb-b122-93e596e6bc76" ParentLink="ReallyComplexStatement_Branch">
+                        <om:Property Name="IsGhostBranch" Value="True" />
+                        <om:Property Name="ReportToAnalyst" Value="True" />
+                        <om:Property Name="Name" Value="Else" />
+                        <om:Property Name="Signal" Value="False" />
+                        <om:Element Type="Terminate" OID="4c401e1a-cef1-4aa1-99f6-eb8097f06d76" ParentLink="ComplexStatement_Statement" LowerBound="74.1" HigherBound="76.1">
+                            <om:Property Name="ErrorMessage" Value="&quot;Process terminated, User already exists in the DB&quot;;&#xD;&#xA;" />
+                            <om:Property Name="ReportToAnalyst" Value="True" />
+                            <om:Property Name="Name" Value="Terminate_1" />
+                            <om:Property Name="Signal" Value="True" />
+                        </om:Element>
+                    </om:Element>
                 </om:Element>
             </om:Element>
             <om:Element Type="PortDeclaration" OID="c2bd5926-b6e7-4103-9b2e-105f05752382" ParentLink="ServiceDeclaration_PortDeclaration" LowerBound="28.1" HigherBound="30.1">
@@ -264,7 +288,7 @@
             <om:Element Type="PortDeclaration" OID="edd38df9-daa5-4251-807a-53ea60be7f91" ParentLink="ServiceDeclaration_PortDeclaration" LowerBound="32.1" HigherBound="34.1">
                 <om:Property Name="PortModifier" Value="Uses" />
                 <om:Property Name="Orientation" Value="Right" />
-                <om:Property Name="PortIndex" Value="37" />
+                <om:Property Name="PortIndex" Value="61" />
                 <om:Property Name="IsWebPort" Value="False" />
                 <om:Property Name="OrderedDelivery" Value="False" />
                 <om:Property Name="DeliveryNotification" Value="None" />
@@ -344,15 +368,24 @@ module BizTalkPrintSystem
                 [Microsoft.XLANGs.BaseTypes.DesignerPosition("64efb4ad-907d-421a-b305-a1c347a69f2d")]
                 transform (msgUser) = BizTalkPrintSystem.Maps.SOAPAccount_To_User (msgSoapReturnAccount);
             }
-            [Microsoft.XLANGs.BaseTypes.DesignerPosition("cf6ab27a-3f5d-4435-9ab5-74992b08def8")]
-            construct msgUserRenamed
+            [Microsoft.XLANGs.BaseTypes.DesignerPosition("1720fcdb-24fb-432f-945e-ee150a8fe519")]
+            if (System.Convert.ToString(xpath(msgUser, "string(/*[local-name()='User']/*[local-name()='Username'])")) != "AlreadyExists")
             {
-                [Microsoft.XLANGs.BaseTypes.DesignerPosition("45124afc-7793-43e7-8f78-69fe4bada2c0")]
-                msgUserRenamed = msgUser;
-                msgUserRenamed(FILE.ReceivedFileName) = xpath(msgUserRenamed, "string(/*[local-name()='User']/*[local-name()='Username'])");
+                [Microsoft.XLANGs.BaseTypes.DesignerPosition("cf6ab27a-3f5d-4435-9ab5-74992b08def8")]
+                construct msgUserRenamed
+                {
+                    [Microsoft.XLANGs.BaseTypes.DesignerPosition("45124afc-7793-43e7-8f78-69fe4bada2c0")]
+                    msgUserRenamed = msgUser;
+                    msgUserRenamed(FILE.ReceivedFileName) = xpath(msgUserRenamed, "string(/*[local-name()='User']/*[local-name()='Username'])");
+                }
+                [Microsoft.XLANGs.BaseTypes.DesignerPosition("0e3a6bc3-c4be-4b1a-9229-d07872355dc9")]
+                send (PrintSystem_User.GetUser, msgUserRenamed);
             }
-            [Microsoft.XLANGs.BaseTypes.DesignerPosition("0e3a6bc3-c4be-4b1a-9229-d07872355dc9")]
-            send (PrintSystem_User.GetUser, msgUserRenamed);
+            else 
+            {
+                [Microsoft.XLANGs.BaseTypes.DesignerPosition("4c401e1a-cef1-4aa1-99f6-eb8097f06d76")]
+                terminate "Process terminated, User already exists in the DB";;
+            }
         }
     }
 }
