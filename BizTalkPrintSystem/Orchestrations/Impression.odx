@@ -90,7 +90,7 @@
         </om:Element>
         <om:Element Type="ServiceDeclaration" OID="08e90b29-dd59-49b1-87c5-f505e57aacc6" ParentLink="Module_ServiceDeclaration" LowerBound="32.1" HigherBound="95.1">
             <om:Property Name="InitializedTransactionType" Value="False" />
-            <om:Property Name="IsInvokable" Value="True" />
+            <om:Property Name="IsInvokable" Value="False" />
             <om:Property Name="TypeModifier" Value="Internal" />
             <om:Property Name="ReportToAnalyst" Value="True" />
             <om:Property Name="Name" Value="Impression" />
@@ -140,7 +140,7 @@
             <om:Element Type="ServiceBody" OID="0e4efb44-3cf4-4f37-8e13-80fc91c576d6" ParentLink="ServiceDeclaration_ServiceBody">
                 <om:Property Name="Signal" Value="False" />
                 <om:Element Type="Receive" OID="0c4e4153-9bd9-481c-b89e-35c95368908f" ParentLink="ServiceBody_Statement" LowerBound="55.1" HigherBound="57.1">
-                    <om:Property Name="Activate" Value="False" />
+                    <om:Property Name="Activate" Value="True" />
                     <om:Property Name="PortName" Value="PrintSystem_GUI" />
                     <om:Property Name="MessageName" Value="quotaToPrint" />
                     <om:Property Name="OperationName" Value="Operation_1" />
@@ -193,26 +193,20 @@
                             <om:Property Name="Name" Value="Construct_dimAmountRequest" />
                             <om:Property Name="Signal" Value="True" />
                             <om:Element Type="Transform" OID="d6c326f1-a427-4171-8a5e-90d28a9bae29" ParentLink="ComplexStatement_Statement" LowerBound="70.1" HigherBound="72.1">
-                                <om:Property Name="ClassName" Value="BizTalkPrintSystem.Maps.Merge_Auth_and_Quota_to_Print" />
+                                <om:Property Name="ClassName" Value="BizTalkPrintSystem.Maps.Quota_to_Print_TO_DimAmount_Request" />
                                 <om:Property Name="ReportToAnalyst" Value="True" />
                                 <om:Property Name="Name" Value="Transform_1" />
                                 <om:Property Name="Signal" Value="False" />
-                                <om:Element Type="MessagePartRef" OID="f2e93d5c-9490-4068-9dfb-0d8600d57723" ParentLink="Transform_InputMessagePartRef" LowerBound="71.108" HigherBound="71.112">
-                                    <om:Property Name="MessageRef" Value="auth" />
+                                <om:Element Type="MessagePartRef" OID="4001ddbf-53e2-4811-8d34-c38399bcf49a" ParentLink="Transform_InputMessagePartRef" LowerBound="71.114" HigherBound="71.126">
+                                    <om:Property Name="MessageRef" Value="quotaToPrint" />
                                     <om:Property Name="ReportToAnalyst" Value="True" />
                                     <om:Property Name="Name" Value="MessagePartReference_1" />
                                     <om:Property Name="Signal" Value="False" />
                                 </om:Element>
-                                <om:Element Type="MessagePartRef" OID="58ce3808-bc03-4474-82dc-68eff71cd64e" ParentLink="Transform_InputMessagePartRef" LowerBound="71.114" HigherBound="71.126">
-                                    <om:Property Name="MessageRef" Value="quotaToPrint" />
-                                    <om:Property Name="ReportToAnalyst" Value="True" />
-                                    <om:Property Name="Name" Value="MessagePartReference_2" />
-                                    <om:Property Name="Signal" Value="False" />
-                                </om:Element>
-                                <om:Element Type="MessagePartRef" OID="aea6fce1-8ac3-4610-8695-2a18a509ae06" ParentLink="Transform_OutputMessagePartRef" LowerBound="71.32" HigherBound="71.49">
+                                <om:Element Type="MessagePartRef" OID="69bb6a8c-a013-4875-b76e-9613a23c8311" ParentLink="Transform_OutputMessagePartRef" LowerBound="71.32" HigherBound="71.49">
                                     <om:Property Name="MessageRef" Value="dimAmount_Request" />
                                     <om:Property Name="ReportToAnalyst" Value="True" />
-                                    <om:Property Name="Name" Value="MessagePartReference_3" />
+                                    <om:Property Name="Name" Value="MessagePartReference_2" />
                                     <om:Property Name="Signal" Value="False" />
                                 </om:Element>
                             </om:Element>
@@ -250,13 +244,13 @@
                                 <om:Property Name="ReportToAnalyst" Value="True" />
                                 <om:Property Name="Name" Value="Create User File" />
                                 <om:Property Name="Signal" Value="True" />
-                                <om:Element Type="MessagePartRef" OID="73a3af46-fe7e-4a7a-bf06-a6f936b2f2a6" ParentLink="Transform_InputMessagePartRef" LowerBound="81.94" HigherBound="81.112">
+                                <om:Element Type="MessagePartRef" OID="8bb21c10-8514-4995-b85b-e398567d8e2f" ParentLink="Transform_InputMessagePartRef" LowerBound="81.94" HigherBound="81.112">
                                     <om:Property Name="MessageRef" Value="dimAmount_Response" />
                                     <om:Property Name="ReportToAnalyst" Value="True" />
                                     <om:Property Name="Name" Value="MessagePartReference_4" />
                                     <om:Property Name="Signal" Value="False" />
                                 </om:Element>
-                                <om:Element Type="MessagePartRef" OID="d92c3f4a-f0a2-4e7f-9bc4-6d14d2865c02" ParentLink="Transform_OutputMessagePartRef" LowerBound="81.32" HigherBound="81.41">
+                                <om:Element Type="MessagePartRef" OID="5967652d-d67a-4eca-a161-884105aa6eb1" ParentLink="Transform_OutputMessagePartRef" LowerBound="81.32" HigherBound="81.41">
                                     <om:Property Name="MessageRef" Value="user_file" />
                                     <om:Property Name="ReportToAnalyst" Value="True" />
                                     <om:Property Name="Name" Value="MessagePartReference_5" />
@@ -479,7 +473,7 @@ module BizTalkPrintSystem
         body ()
         {
             [Microsoft.XLANGs.BaseTypes.DesignerPosition("0c4e4153-9bd9-481c-b89e-35c95368908f")]
-            receive (PrintSystem_GUI.Operation_1, quotaToPrint);
+            activate receive (PrintSystem_GUI.Operation_1, quotaToPrint);
             [Microsoft.XLANGs.BaseTypes.DesignerPosition("957aae3d-b767-4c3d-ad86-62ea1b737f3e")]
             receive (Auth_IN.Operation_1, auth);
             [Microsoft.XLANGs.BaseTypes.DesignerPosition("dd10ca66-0ac2-43b7-9ee3-36006616bb81")]
@@ -494,7 +488,7 @@ module BizTalkPrintSystem
                 construct dimAmount_Request
                 {
                     [Microsoft.XLANGs.BaseTypes.DesignerPosition("d6c326f1-a427-4171-8a5e-90d28a9bae29")]
-                    transform (dimAmount_Request) = BizTalkPrintSystem.Maps.Merge_Auth_and_Quota_to_Print (auth, quotaToPrint);
+                    transform (dimAmount_Request) = BizTalkPrintSystem.Maps.Quota_to_Print_TO_DimAmount_Request (quotaToPrint);
                 }
                 [Microsoft.XLANGs.BaseTypes.DesignerPosition("3433c77c-6550-46e8-b253-bd930ee90ce1")]
                 send (WebApp.Operation_1, dimAmount_Request);

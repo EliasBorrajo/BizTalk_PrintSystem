@@ -273,15 +273,15 @@
     </XLang>
   </ItemGroup>
   <ItemGroup>
-    <Map Include="Maps\Merge_Auth_and_Quota_to_Print.btm">
-      <TypeName>Merge_Auth_and_Quota_to_Print</TypeName>
+    <Map Include="Maps\DimAmountResult_to_User.btm">
+      <TypeName>DimAmountResult_to_User</TypeName>
       <Namespace>BizTalkPrintSystem.Maps</Namespace>
       <SubType>Task</SubType>
     </Map>
   </ItemGroup>
   <ItemGroup>
-    <Map Include="Maps\DimAmountResult_to_User.btm">
-      <TypeName>DimAmountResult_to_User</TypeName>
+    <Map Include="Maps\Quota_to_Print_TO_DimAmount_Request.btm">
+      <TypeName>Quota_to_Print_TO_DimAmount_Request</TypeName>
       <Namespace>BizTalkPrintSystem.Maps</Namespace>
       <SubType>Task</SubType>
     </Map>
