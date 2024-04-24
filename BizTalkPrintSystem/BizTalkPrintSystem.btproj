@@ -197,8 +197,8 @@
       <Namespace>BizTalkPrintSystem.Schemas</Namespace>
       <SubType>Task</SubType>
     </Schema>
-    <Schema Include="Schemas\auth.xsd">
-      <TypeName>auth</TypeName>
+    <Schema Include="Schemas\Auth.xsd">
+      <TypeName>Auth</TypeName>
       <Namespace>BizTalkPrintSystem.Schemas</Namespace>
       <SubType>Task</SubType>
     </Schema>
