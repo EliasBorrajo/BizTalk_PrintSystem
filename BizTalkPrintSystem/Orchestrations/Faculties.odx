@@ -160,7 +160,7 @@
                     <om:Property Name="InPipeline" Value="Microsoft.BizTalk.DefaultPipelines.XMLReceive" />
                     <om:Property Name="OutPipeline" Value="Microsoft.BizTalk.DefaultPipelines.XMLTransmit" />
                     <om:Property Name="TransportType" Value="FILE" />
-                    <om:Property Name="URI" Value="C:\AllFiles\Project\FilesSystem\Faculties\*.xml" />
+                    <om:Property Name="URI" Value="C:\AllFiles\Project\FilesSystem\Faculties\IN\*.xml" />
                     <om:Property Name="IsDynamic" Value="False" />
                     <om:Property Name="Signal" Value="False" />
                 </om:Element>
@@ -212,7 +212,7 @@ module BizTalkPrintSystem
     [Microsoft.XLANGs.BaseTypes.BPELExportable(false)]
     internal service Main
     {
-        [Microsoft.XLANGs.BaseTypes.PhysicalBinding("FILE", "C:\\AllFiles\\Project\\FilesSystem\\Faculties\\*.xml", typeof(Microsoft.BizTalk.DefaultPipelines.XMLReceive))]
+        [Microsoft.XLANGs.BaseTypes.PhysicalBinding("FILE", "C:\\AllFiles\\Project\\FilesSystem\\Faculties\\IN\\*.xml", typeof(Microsoft.BizTalk.DefaultPipelines.XMLReceive))]
         port implements Get_Transaction_by_Username Faculties;
         [Microsoft.XLANGs.BaseTypes.LogicalBinding()]
         port uses WS_Add_Amount_by_Username WebService;

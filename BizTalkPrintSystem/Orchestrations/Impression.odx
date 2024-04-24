@@ -364,12 +364,12 @@
                 <om:Property Name="ParamDirection" Value="In" />
                 <om:Property Name="ReportToAnalyst" Value="True" />
                 <om:Property Name="Name" Value="Authentication_Request" />
-                <om:Property Name="Signal" Value="False" />
+                <om:Property Name="Signal" Value="True" />
                 <om:Element Type="PhysicalBindingAttribute" OID="2c626c39-0097-4534-b0ca-d5c53277fd00" ParentLink="PortDeclaration_CLRAttribute" LowerBound="41.1" HigherBound="42.1">
                     <om:Property Name="InPipeline" Value="Microsoft.BizTalk.DefaultPipelines.XMLReceive" />
                     <om:Property Name="OutPipeline" Value="Microsoft.BizTalk.DefaultPipelines.XMLTransmit" />
                     <om:Property Name="TransportType" Value="FILE" />
-                    <om:Property Name="URI" Value="C:\AllFiles\Project\FilesSystem\AD\OUT\*.xml" />
+                    <om:Property Name="URI" Value="C:\AllFiles\Project\FilesSystem\AD\OUT\auth.xml" />
                     <om:Property Name="IsDynamic" Value="False" />
                     <om:Property Name="Signal" Value="False" />
                 </om:Element>
@@ -427,7 +427,7 @@
                     <om:Property Name="InPipeline" Value="Microsoft.BizTalk.DefaultPipelines.XMLReceive" />
                     <om:Property Name="OutPipeline" Value="Microsoft.BizTalk.DefaultPipelines.XMLTransmit" />
                     <om:Property Name="TransportType" Value="FILE" />
-                    <om:Property Name="URI" Value="C:\AllFiles\Project\FilesSystem\PrintSystem\Auth\Response\*.xml" />
+                    <om:Property Name="URI" Value="C:\AllFiles\Project\FilesSystem\AD\IN\*.xml" />
                     <om:Property Name="IsDynamic" Value="False" />
                     <om:Property Name="Signal" Value="False" />
                 </om:Element>
@@ -438,8 +438,8 @@
             <om:Property Name="ReportToAnalyst" Value="True" />
             <om:Property Name="Name" Value="CorrelationType_Auth" />
             <om:Property Name="Signal" Value="True" />
-            <om:Element Type="PropertyRef" OID="0233fb81-08b5-4057-a480-3e3ae029d419" ParentLink="CorrelationType_PropertyRef" LowerBound="34.9" HigherBound="34.40">
-                <om:Property Name="Ref" Value="MessageTracking.MessageIdentity" />
+            <om:Element Type="PropertyRef" OID="034b4785-7246-48a1-a07c-d97b944b2e45" ParentLink="CorrelationType_PropertyRef" LowerBound="34.9" HigherBound="34.30">
+                <om:Property Name="Ref" Value="SBMessaging.MessageId" />
                 <om:Property Name="ReportToAnalyst" Value="True" />
                 <om:Property Name="Name" Value="PropertyRef_1" />
                 <om:Property Name="Signal" Value="False" />
@@ -481,20 +481,20 @@ module BizTalkPrintSystem
     };
     internal correlationtype CorrelationType_Auth
     {
-        MessageTracking.MessageIdentity
+        SBMessaging.MessageId
     };
     [Microsoft.XLANGs.BaseTypes.BPELExportable(false)]
     internal service Impression
     {
         [Microsoft.XLANGs.BaseTypes.PhysicalBinding("FILE", "C:\\AllFiles\\Project\\FilesSystem\\PrintSystem\\IN\\*.xml", typeof(Microsoft.BizTalk.DefaultPipelines.XMLReceive))]
         port implements PrintSystem_IN PrintSystem_GUI;
-        [Microsoft.XLANGs.BaseTypes.PhysicalBinding("FILE", "C:\\AllFiles\\Project\\FilesSystem\\AD\\OUT\\*.xml", typeof(Microsoft.BizTalk.DefaultPipelines.XMLTransmit))]
+        [Microsoft.XLANGs.BaseTypes.PhysicalBinding("FILE", "C:\\AllFiles\\Project\\FilesSystem\\AD\\OUT\\auth.xml", typeof(Microsoft.BizTalk.DefaultPipelines.XMLTransmit))]
         port uses Auth_IN_Request Authentication_Request;
         [Microsoft.XLANGs.BaseTypes.LogicalBinding()]
         port uses WebApp_dimAmount WebApp;
         [Microsoft.XLANGs.BaseTypes.PhysicalBinding("FILE", "C:\\AllFiles\\Project\\FilesSystem\\PrintSystem\\OUT\\%SourceFileName%.xml", typeof(Microsoft.BizTalk.DefaultPipelines.XMLTransmit))]
         port uses PrintSystem_Return PrintSystem_Response;
-        [Microsoft.XLANGs.BaseTypes.PhysicalBinding("FILE", "C:\\AllFiles\\Project\\FilesSystem\\PrintSystem\\Auth\\Response\\*.xml", typeof(Microsoft.BizTalk.DefaultPipelines.XMLReceive))]
+        [Microsoft.XLANGs.BaseTypes.PhysicalBinding("FILE", "C:\\AllFiles\\Project\\FilesSystem\\AD\\IN\\*.xml", typeof(Microsoft.BizTalk.DefaultPipelines.XMLReceive))]
         port implements Auth_IN_Response Authentication_Response;
         correlation CorrelationType_Auth Correlation_Auth;
         message Schemas.QuotaToPrint quotaToPrint;

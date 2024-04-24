@@ -73,58 +73,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Schema Include="Schemas\AddAmount.xsd">
-      <TypeName>AddAmount</TypeName>
-      <Namespace>BizTalkPrintSystem.Schemas</Namespace>
-      <SubType>Task</SubType>
-    </Schema>
-  </ItemGroup>
-  <ItemGroup>
-    <Schema Include="Schemas\UserOut.xsd">
-      <TypeName>UserOut</TypeName>
-      <Namespace>BizTalkPrintSystem.Schemas</Namespace>
-      <SubType>Task</SubType>
-    </Schema>
-  </ItemGroup>
-  <ItemGroup>
-    <Schema Include="Schemas\AddQuota.xsd">
-      <TypeName>AddQuota</TypeName>
-      <Namespace>BizTalkPrintSystem.Schemas</Namespace>
-      <SubType>Task</SubType>
-    </Schema>
-  </ItemGroup>
-  <ItemGroup>
-    <Schema Include="Schemas\AuthenticationOut.xsd">
-      <TypeName>Authentication</TypeName>
-      <Namespace>BizTalkPrintSystem.Schemas</Namespace>
-      <SubType>Task</SubType>
-    </Schema>
-  </ItemGroup>
-  <ItemGroup>
-    <Schema Include="Schemas\AuthenticationIn.xsd">
-      <TypeName>AuthenticationIn</TypeName>
-      <Namespace>BizTalkPrintSystem.Schemas</Namespace>
-      <SubType>Task</SubType>
-    </Schema>
-  </ItemGroup>
-  <ItemGroup>
     <Map Include="Maps\AddAmount_To_AddAmountByUsernameSOAP.btm">
       <TypeName>AddAmount_To_AddAmountSOAP</TypeName>
       <Namespace>BizTalkPrintSystem.Maps</Namespace>
       <SubType>Task</SubType>
     </Map>
-  </ItemGroup>
-  <ItemGroup>
-    <Schema Include="Schemas\AddAmountByUsername_SOAP.xsd">
-      <TypeName>AddAmountByUsername_SOAP</TypeName>
-      <Namespace>BizTalkPrintSystem.Schemas</Namespace>
-      <SubType>Task</SubType>
-    </Schema>
-    <Schema Include="Schemas\AddAmountByUsername_SOAP1.xsd">
-      <TypeName>AddAmountByUsername_SOAP1</TypeName>
-      <Namespace>BizTalkPrintSystem.Schemas</Namespace>
-      <SubType>Task</SubType>
-    </Schema>
   </ItemGroup>
   <ItemGroup>
     <XLang Include="Orchestrations\Faculties.odx">
@@ -139,13 +92,6 @@
       <Namespace>BizTalkPrintSystem.Orchestrations</Namespace>
       <SubType>Task</SubType>
     </XLang>
-  </ItemGroup>
-  <ItemGroup>
-    <Schema Include="Schemas\AddUser.xsd">
-      <TypeName>AddUser</TypeName>
-      <Namespace>BizTalkPrintSystem.Orchestrations</Namespace>
-      <SubType>Task</SubType>
-    </Schema>
   </ItemGroup>
   <ItemGroup>
     <Schema Include="Schemas\NewUser.xsd">
@@ -289,6 +235,20 @@
   <ItemGroup>
     <Map Include="Maps\Quota_To_Print_TO_Auth.btm">
       <TypeName>Quota_To_Print_TO_Auth</TypeName>
+      <Namespace>BizTalkPrintSystem.Maps</Namespace>
+      <SubType>Task</SubType>
+    </Map>
+  </ItemGroup>
+  <ItemGroup>
+    <XLang Include="Orchestrations\Auth.odx">
+      <TypeName>Auth</TypeName>
+      <Namespace>BizTalkPrintSystem.Orchestrations</Namespace>
+      <SubType>Task</SubType>
+    </XLang>
+  </ItemGroup>
+  <ItemGroup>
+    <Map Include="Maps\Auth_TO_AuthResult.btm">
+      <TypeName>Auth_TO_AuthResult</TypeName>
       <Namespace>BizTalkPrintSystem.Maps</Namespace>
       <SubType>Task</SubType>
     </Map>

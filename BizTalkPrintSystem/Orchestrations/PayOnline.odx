@@ -2,7 +2,7 @@
 #error Do not define __DESIGNER_DATA.
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <om:MetaModel MajorVersion="1" MinorVersion="3" Core="2b131234-7959-458d-834f-2dc0769ce683" ScheduleModel="66366196-361d-448d-976f-cab5e87496d2" xmlns:om="http://schemas.microsoft.com/BizTalk/2003/DesignerData">
-    <om:Element Type="Module" OID="b42a967c-1371-466b-ad55-4356c58dc11f" LowerBound="1.1" HigherBound="63.1">
+    <om:Element Type="Module" OID="b42a967c-1371-466b-ad55-4356c58dc11f" LowerBound="1.1" HigherBound="65.1">
         <om:Property Name="ReportToAnalyst" Value="True" />
         <om:Property Name="Name" Value="BizTalkPrintSystem" />
         <om:Property Name="Signal" Value="False" />
@@ -69,7 +69,7 @@
                 </om:Element>
             </om:Element>
         </om:Element>
-        <om:Element Type="ServiceDeclaration" OID="1c1124b5-06dc-4522-8505-138727aa34c1" ParentLink="Module_ServiceDeclaration" LowerBound="25.1" HigherBound="62.1">
+        <om:Element Type="ServiceDeclaration" OID="1c1124b5-06dc-4522-8505-138727aa34c1" ParentLink="Module_ServiceDeclaration" LowerBound="25.1" HigherBound="64.1">
             <om:Property Name="InitializedTransactionType" Value="False" />
             <om:Property Name="IsInvokable" Value="False" />
             <om:Property Name="TypeModifier" Value="Internal" />
@@ -163,7 +163,7 @@
                     <om:Property Name="Name" Value="Return Account" />
                     <om:Property Name="Signal" Value="True" />
                 </om:Element>
-                <om:Element Type="Construct" OID="7ab0d452-e358-4238-871f-eb46a6f029a3" ParentLink="ServiceBody_Statement" LowerBound="52.1" HigherBound="58.1">
+                <om:Element Type="Construct" OID="7ab0d452-e358-4238-871f-eb46a6f029a3" ParentLink="ServiceBody_Statement" LowerBound="52.1" HigherBound="60.1">
                     <om:Property Name="ReportToAnalyst" Value="True" />
                     <om:Property Name="Name" Value="Prepare to PrintSystem" />
                     <om:Property Name="Signal" Value="True" />
@@ -185,13 +185,19 @@
                             <om:Property Name="Signal" Value="False" />
                         </om:Element>
                     </om:Element>
+                    <om:Element Type="MessageAssignment" OID="4e2abb2c-db70-4c1b-aa19-973729f4d858" ParentLink="ComplexStatement_Statement" LowerBound="57.1" HigherBound="59.1">
+                        <om:Property Name="Expression" Value="msgUser(FILE.ReceivedFileName) = xpath(msgUser, &quot;string(/*[local-name()='User']/*[local-name()='Username'])&quot;);" />
+                        <om:Property Name="ReportToAnalyst" Value="False" />
+                        <om:Property Name="Name" Value="MessageAssignment_1" />
+                        <om:Property Name="Signal" Value="False" />
+                    </om:Element>
                     <om:Element Type="MessageRef" OID="373a2454-5620-4a53-a2fa-a2bb199d71c2" ParentLink="Construct_MessageRef" LowerBound="53.23" HigherBound="53.30">
                         <om:Property Name="Ref" Value="msgUser" />
                         <om:Property Name="ReportToAnalyst" Value="True" />
                         <om:Property Name="Signal" Value="False" />
                     </om:Element>
                 </om:Element>
-                <om:Element Type="Send" OID="4cac0a04-e1a3-4288-b270-2e7f852c5ed4" ParentLink="ServiceBody_Statement" LowerBound="58.1" HigherBound="60.1">
+                <om:Element Type="Send" OID="4cac0a04-e1a3-4288-b270-2e7f852c5ed4" ParentLink="ServiceBody_Statement" LowerBound="60.1" HigherBound="62.1">
                     <om:Property Name="PortName" Value="PrintSystem" />
                     <om:Property Name="MessageName" Value="msgUser" />
                     <om:Property Name="OperationName" Value="Operation_1" />
@@ -319,6 +325,8 @@ module BizTalkPrintSystem
             {
                 [Microsoft.XLANGs.BaseTypes.DesignerPosition("a78dbbe3-25c3-4eb5-9bdb-cec850c8692e")]
                 transform (msgUser) = BizTalkPrintSystem.Maps.SOAP_AddAmountByUsername_ReturnAccount_To_User (msgSoapReturnAccount);
+                [Microsoft.XLANGs.BaseTypes.DesignerPosition("4e2abb2c-db70-4c1b-aa19-973729f4d858")]
+                msgUser(FILE.ReceivedFileName) = xpath(msgUser, "string(/*[local-name()='User']/*[local-name()='Username'])");
             }
             [Microsoft.XLANGs.BaseTypes.DesignerPosition("4cac0a04-e1a3-4288-b270-2e7f852c5ed4")]
             send (PrintSystem.Operation_1, msgUser);
