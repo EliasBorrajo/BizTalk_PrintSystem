@@ -282,7 +282,7 @@
                     <om:Property Name="InPipeline" Value="Microsoft.BizTalk.DefaultPipelines.XMLReceive" />
                     <om:Property Name="OutPipeline" Value="Microsoft.BizTalk.DefaultPipelines.XMLTransmit" />
                     <om:Property Name="TransportType" Value="FILE" />
-                    <om:Property Name="URI" Value="C:\AllFiles\Project\FilesSystem\PrintSystem\OUT\user_%SourceFileName%.xml" />
+                    <om:Property Name="URI" Value="C:\AllFiles\Project\FilesSystem\PrintSystem\OUT\%SourceFileName%.xml" />
                     <om:Property Name="IsDynamic" Value="False" />
                     <om:Property Name="Signal" Value="False" />
                 </om:Element>
@@ -315,7 +315,7 @@ module BizTalkPrintSystem
         port implements User_Creation SAP_In;
         [Microsoft.XLANGs.BaseTypes.LogicalBinding()]
         port uses WS_Add_User WebService;
-        [Microsoft.XLANGs.BaseTypes.PhysicalBinding("FILE", "C:\\AllFiles\\Project\\FilesSystem\\PrintSystem\\OUT\\user_%SourceFileName%.xml", typeof(Microsoft.BizTalk.DefaultPipelines.XMLTransmit))]
+        [Microsoft.XLANGs.BaseTypes.PhysicalBinding("FILE", "C:\\AllFiles\\Project\\FilesSystem\\PrintSystem\\OUT\\%SourceFileName%.xml", typeof(Microsoft.BizTalk.DefaultPipelines.XMLTransmit))]
         port uses PrintSystem_Return PrintSystem_User;
         message Schemas.NewUser msgNewUser;
         message Schemas.User msgUser;
