@@ -272,6 +272,20 @@
       <SubType>Task</SubType>
     </XLang>
   </ItemGroup>
+  <ItemGroup>
+    <Map Include="Maps\Merge_Auth_and_Quota_to_Print.btm">
+      <TypeName>Merge_Auth_and_Quota_to_Print</TypeName>
+      <Namespace>BizTalkPrintSystem.Maps</Namespace>
+      <SubType>Task</SubType>
+    </Map>
+  </ItemGroup>
+  <ItemGroup>
+    <Map Include="Maps\DimAmountResult_to_User.btm">
+      <TypeName>DimAmountResult_to_User</TypeName>
+      <Namespace>BizTalkPrintSystem.Maps</Namespace>
+      <SubType>Task</SubType>
+    </Map>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\BizTalk\BizTalkC.targets" />
 </Project>
