@@ -153,6 +153,11 @@
       <Namespace>BizTalkPrintSystem.Schemas</Namespace>
       <SubType>Task</SubType>
     </Schema>
+    <Schema Include="PropertySchema.xsd">
+      <TypeName>PropertySchema</TypeName>
+      <Namespace>BizTalkPrintSystem.PropertySchema</Namespace>
+      <SubType>Task</SubType>
+    </Schema>
     <None Include="SN_KeyFile\AdvWorks.snk" />
   </ItemGroup>
   <ItemGroup>

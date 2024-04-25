@@ -6,12 +6,13 @@ namespace BizTalkPrintSystem.Maps {
     public sealed class Quota_To_Print_TO_Auth : global::Microsoft.XLANGs.BaseTypes.TransformBase {
         
         private const string _strMap = @"<?xml version=""1.0"" encoding=""UTF-16""?>
-<xsl:stylesheet xmlns:xsl=""http://www.w3.org/1999/XSL/Transform"" xmlns:msxsl=""urn:schemas-microsoft-com:xslt"" xmlns:var=""http://schemas.microsoft.com/BizTalk/2003/var"" exclude-result-prefixes=""msxsl var s0"" version=""1.0"" xmlns:ns0=""http://BizTalkPrintSystem.Schemas.auth"" xmlns:s0=""http://BizTalkPrintSystem.Schemas.quotaToPrint"">
+<xsl:stylesheet xmlns:xsl=""http://www.w3.org/1999/XSL/Transform"" xmlns:msxsl=""urn:schemas-microsoft-com:xslt"" xmlns:var=""http://schemas.microsoft.com/BizTalk/2003/var"" exclude-result-prefixes=""msxsl var s0 userCSharp"" version=""1.0"" xmlns:ns0=""http://BizTalkPrintSystem.Schemas.auth"" xmlns:s0=""http://BizTalkPrintSystem.Schemas.quotaToPrint"" xmlns:userCSharp=""http://schemas.microsoft.com/BizTalk/2003/userCSharp"">
   <xsl:output omit-xml-declaration=""yes"" method=""xml"" version=""1.0"" />
   <xsl:template match=""/"">
     <xsl:apply-templates select=""/s0:Print"" />
   </xsl:template>
   <xsl:template match=""/s0:Print"">
+    <xsl:variable name=""var:v1"" select=""userCSharp:StringConcat(&quot; &quot;)"" />
     <ns0:Auth>
       <username>
         <xsl:value-of select=""Username/text()"" />
@@ -19,8 +20,20 @@ namespace BizTalkPrintSystem.Maps {
       <password>
         <xsl:value-of select=""Password/text()"" />
       </password>
+      <CorrelationId>
+        <xsl:value-of select=""$var:v1"" />
+      </CorrelationId>
     </ns0:Auth>
   </xsl:template>
+  <msxsl:script language=""C#"" implements-prefix=""userCSharp""><![CDATA[
+public string StringConcat(string param0)
+{
+   return param0;
+}
+
+
+
+]]></msxsl:script>
 </xsl:stylesheet>";
         
         private const int _useXSLTransform = 0;

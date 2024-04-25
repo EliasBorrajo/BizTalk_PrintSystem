@@ -12,22 +12,25 @@ namespace BizTalkPrintSystem.Maps {
     <xsl:apply-templates select=""/s0:Auth"" />
   </xsl:template>
   <xsl:template match=""/s0:Auth"">
+    <xsl:variable name=""var:v1"" select=""userCSharp:StringConcat(&quot;true&quot;)"" />
     <ns0:AuthResponse>
       <username>
         <xsl:value-of select=""username/text()"" />
       </username>
-      <xsl:variable name=""var:v1"" select=""userCSharp:RandomTrueFalse()"" />
       <result>
         <xsl:value-of select=""$var:v1"" />
       </result>
+      <CorrelationId>
+        <xsl:value-of select=""CorrelationId/text()"" />
+      </CorrelationId>
     </ns0:AuthResponse>
   </xsl:template>
   <msxsl:script language=""C#"" implements-prefix=""userCSharp""><![CDATA[
-public string RandomTrueFalse()
+public string StringConcat(string param0)
 {
-    Random rnd = new Random();
-    return rnd.NextDouble() < 0.7 ? ""true"" : ""false"";
+   return param0;
 }
+
 
 
 ]]></msxsl:script>
