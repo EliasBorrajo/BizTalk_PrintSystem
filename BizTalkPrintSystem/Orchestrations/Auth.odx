@@ -13,6 +13,20 @@
             <om:Property Name="ReportToAnalyst" Value="True" />
             <om:Property Name="Name" Value="Auth" />
             <om:Property Name="Signal" Value="False" />
+            <om:Element Type="MessageDeclaration" OID="1652f0eb-f78d-404a-806b-622ac45b2c38" ParentLink="ServiceDeclaration_MessageDeclaration" LowerBound="11.1" HigherBound="12.1">
+                <om:Property Name="Type" Value="BizTalkPrintSystem.Schemas.Auth" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="msgAuth" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="MessageDeclaration" OID="9deca78d-7cfb-409a-8275-c0b5cc5c20b0" ParentLink="ServiceDeclaration_MessageDeclaration" LowerBound="12.1" HigherBound="13.1">
+                <om:Property Name="Type" Value="BizTalkPrintSystem.Schemas.AuthResult" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="msgAuthResponse" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
             <om:Element Type="ServiceBody" OID="a0053a2e-d270-4367-b140-c866f23b6f02" ParentLink="ServiceDeclaration_ServiceBody">
                 <om:Property Name="Signal" Value="False" />
                 <om:Element Type="Receive" OID="045ea41c-b8ce-4fff-adb0-2576f6319e7e" ParentLink="ServiceBody_Statement" LowerBound="15.1" HigherBound="17.1">
@@ -30,17 +44,17 @@
                     <om:Property Name="Name" Value="ConstructMessage_1" />
                     <om:Property Name="Signal" Value="True" />
                     <om:Element Type="Transform" OID="b764d49d-d7d2-4829-9928-2936c03d2d0a" ParentLink="ComplexStatement_Statement" LowerBound="20.1" HigherBound="22.1">
-                        <om:Property Name="ClassName" Value="BizTalkPrintSystem.Maps.Auth_TO_AuthResult" />
+                        <om:Property Name="ClassName" Value="BizTalkPrintSystem.Maps.Auth_To_AuthResult" />
                         <om:Property Name="ReportToAnalyst" Value="True" />
                         <om:Property Name="Name" Value="Transform_1" />
-                        <om:Property Name="Signal" Value="True" />
-                        <om:Element Type="MessagePartRef" OID="7c7b827b-8c7b-4718-b045-9688b4d4ac95" ParentLink="Transform_InputMessagePartRef" LowerBound="21.91" HigherBound="21.98">
+                        <om:Property Name="Signal" Value="False" />
+                        <om:Element Type="MessagePartRef" OID="7bcb655c-580b-4662-a76a-58be65fc5b2e" ParentLink="Transform_InputMessagePartRef" LowerBound="21.91" HigherBound="21.98">
                             <om:Property Name="MessageRef" Value="msgAuth" />
                             <om:Property Name="ReportToAnalyst" Value="True" />
                             <om:Property Name="Name" Value="MessagePartReference_1" />
                             <om:Property Name="Signal" Value="False" />
                         </om:Element>
-                        <om:Element Type="MessagePartRef" OID="e11f3b76-946b-4526-874a-2f1238477ee1" ParentLink="Transform_OutputMessagePartRef" LowerBound="21.28" HigherBound="21.43">
+                        <om:Element Type="MessagePartRef" OID="8f877e85-94c5-4953-9ea1-1d498b00ecd5" ParentLink="Transform_OutputMessagePartRef" LowerBound="21.28" HigherBound="21.43">
                             <om:Property Name="MessageRef" Value="msgAuthResponse" />
                             <om:Property Name="ReportToAnalyst" Value="True" />
                             <om:Property Name="Name" Value="MessagePartReference_2" />
@@ -105,20 +119,6 @@
                     <om:Property Name="Signal" Value="False" />
                 </om:Element>
             </om:Element>
-            <om:Element Type="MessageDeclaration" OID="1652f0eb-f78d-404a-806b-622ac45b2c38" ParentLink="ServiceDeclaration_MessageDeclaration" LowerBound="11.1" HigherBound="12.1">
-                <om:Property Name="Type" Value="BizTalkPrintSystem.Schemas.Auth" />
-                <om:Property Name="ParamDirection" Value="In" />
-                <om:Property Name="ReportToAnalyst" Value="True" />
-                <om:Property Name="Name" Value="msgAuth" />
-                <om:Property Name="Signal" Value="True" />
-            </om:Element>
-            <om:Element Type="MessageDeclaration" OID="9deca78d-7cfb-409a-8275-c0b5cc5c20b0" ParentLink="ServiceDeclaration_MessageDeclaration" LowerBound="12.1" HigherBound="13.1">
-                <om:Property Name="Type" Value="BizTalkPrintSystem.Schemas.AuthResult" />
-                <om:Property Name="ParamDirection" Value="In" />
-                <om:Property Name="ReportToAnalyst" Value="True" />
-                <om:Property Name="Name" Value="msgAuthResponse" />
-                <om:Property Name="Signal" Value="True" />
-            </om:Element>
         </om:Element>
     </om:Element>
 </om:MetaModel>
@@ -143,7 +143,7 @@ module BizTalkPrintSystem
             construct msgAuthResponse
             {
                 [Microsoft.XLANGs.BaseTypes.DesignerPosition("b764d49d-d7d2-4829-9928-2936c03d2d0a")]
-                transform (msgAuthResponse) = BizTalkPrintSystem.Maps.Auth_TO_AuthResult (msgAuth);
+                transform (msgAuthResponse) = BizTalkPrintSystem.Maps.Auth_To_AuthResult (msgAuth);
             }
             [Microsoft.XLANGs.BaseTypes.DesignerPosition("085a7a29-a092-45cf-925b-b455de6ad1d5")]
             send (Port_Auth_Response.Operation_1, msgAuthResponse);

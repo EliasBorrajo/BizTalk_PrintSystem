@@ -109,17 +109,17 @@
                     <om:Property Name="Name" Value="Prepare to SOAP" />
                     <om:Property Name="Signal" Value="True" />
                     <om:Element Type="Transform" OID="bc357053-7a19-439b-8ba7-8f963dbd6f3b" ParentLink="ComplexStatement_Statement" LowerBound="39.1" HigherBound="41.1">
-                        <om:Property Name="ClassName" Value="BizTalkPrintSystem.SOAP_AddUser" />
+                        <om:Property Name="ClassName" Value="BizTalkPrintSystem.NewUser_To_WSAddUser" />
                         <om:Property Name="ReportToAnalyst" Value="True" />
                         <om:Property Name="Name" Value="SOAP_AddUser" />
-                        <om:Property Name="Signal" Value="False" />
-                        <om:Element Type="MessagePartRef" OID="a54436cb-1006-49f2-82ab-f345ab0cea93" ParentLink="Transform_InputMessagePartRef" LowerBound="40.79" HigherBound="40.89">
+                        <om:Property Name="Signal" Value="True" />
+                        <om:Element Type="MessagePartRef" OID="33abb12f-cb39-48ff-96de-e245957af206" ParentLink="Transform_InputMessagePartRef" LowerBound="40.87" HigherBound="40.97">
                             <om:Property Name="MessageRef" Value="msgNewUser" />
                             <om:Property Name="ReportToAnalyst" Value="True" />
                             <om:Property Name="Name" Value="MessagePartReference_1" />
                             <om:Property Name="Signal" Value="False" />
                         </om:Element>
-                        <om:Element Type="MessagePartRef" OID="8c1773ec-f34a-4cd4-8772-d2ee5370c030" ParentLink="Transform_OutputMessagePartRef" LowerBound="40.28" HigherBound="40.42">
+                        <om:Element Type="MessagePartRef" OID="d729bd75-e6f4-4846-88e7-f268ec58be37" ParentLink="Transform_OutputMessagePartRef" LowerBound="40.28" HigherBound="40.42">
                             <om:Property Name="MessageRef" Value="msgSoapAddUser" />
                             <om:Property Name="ReportToAnalyst" Value="True" />
                             <om:Property Name="Name" Value="MessagePartReference_2" />
@@ -156,24 +156,24 @@
                     <om:Property Name="Name" Value="Prepare to PrintSystem" />
                     <om:Property Name="Signal" Value="True" />
                     <om:Element Type="Transform" OID="64efb4ad-907d-421a-b305-a1c347a69f2d" ParentLink="ComplexStatement_Statement" LowerBound="49.1" HigherBound="51.1">
-                        <om:Property Name="ClassName" Value="BizTalkPrintSystem.Maps.SOAPAccount_To_User" />
+                        <om:Property Name="ClassName" Value="BizTalkPrintSystem.Maps.WSAccount_To_User" />
                         <om:Property Name="ReportToAnalyst" Value="True" />
                         <om:Property Name="Name" Value="SOAP_Account" />
                         <om:Property Name="Signal" Value="False" />
-                        <om:Element Type="MessagePartRef" OID="e18e255f-29b0-4e6d-abd2-a66feef3fe66" ParentLink="Transform_InputMessagePartRef" LowerBound="50.84" HigherBound="50.104">
+                        <om:Element Type="MessagePartRef" OID="aaa1e964-4ee0-4d42-bb9d-9aa649dd30ff" ParentLink="Transform_InputMessagePartRef" LowerBound="50.82" HigherBound="50.102">
                             <om:Property Name="MessageRef" Value="msgSoapReturnAccount" />
                             <om:Property Name="ReportToAnalyst" Value="True" />
                             <om:Property Name="Name" Value="MessagePartReference_3" />
                             <om:Property Name="Signal" Value="False" />
                         </om:Element>
-                        <om:Element Type="MessagePartRef" OID="98ae9a7e-9f37-462d-8086-d115c366f2dc" ParentLink="Transform_OutputMessagePartRef" LowerBound="50.28" HigherBound="50.35">
+                        <om:Element Type="MessagePartRef" OID="383e7a84-c8b2-4c48-8727-def04625c181" ParentLink="Transform_OutputMessagePartRef" LowerBound="50.28" HigherBound="50.35">
                             <om:Property Name="MessageRef" Value="msgUser" />
                             <om:Property Name="ReportToAnalyst" Value="True" />
                             <om:Property Name="Name" Value="MessagePartReference_4" />
                             <om:Property Name="Signal" Value="False" />
                         </om:Element>
                     </om:Element>
-                    <om:Element Type="MessageRef" OID="4917f7bb-55de-478f-8f16-ae4120544c24" ParentLink="Construct_MessageRef" LowerBound="47.23" HigherBound="47.30">
+                    <om:Element Type="MessageRef" OID="229fe723-b3af-439e-8beb-c25d622125a8" ParentLink="Construct_MessageRef" LowerBound="47.23" HigherBound="47.30">
                         <om:Property Name="Ref" Value="msgUser" />
                         <om:Property Name="ReportToAnalyst" Value="True" />
                         <om:Property Name="Signal" Value="False" />
@@ -330,7 +330,7 @@ module BizTalkPrintSystem
             construct msgSoapAddUser
             {
                 [Microsoft.XLANGs.BaseTypes.DesignerPosition("bc357053-7a19-439b-8ba7-8f963dbd6f3b")]
-                transform (msgSoapAddUser) = BizTalkPrintSystem.SOAP_AddUser (msgNewUser);
+                transform (msgSoapAddUser) = BizTalkPrintSystem.NewUser_To_WSAddUser (msgNewUser);
             }
             [Microsoft.XLANGs.BaseTypes.DesignerPosition("6f051571-313c-4f6e-abf3-b9674cb13db8")]
             send (WebService.AddUser, msgSoapAddUser);
@@ -340,7 +340,7 @@ module BizTalkPrintSystem
             construct msgUser
             {
                 [Microsoft.XLANGs.BaseTypes.DesignerPosition("64efb4ad-907d-421a-b305-a1c347a69f2d")]
-                transform (msgUser) = BizTalkPrintSystem.Maps.SOAPAccount_To_User (msgSoapReturnAccount);
+                transform (msgUser) = BizTalkPrintSystem.Maps.WSAccount_To_User (msgSoapReturnAccount);
             }
             [Microsoft.XLANGs.BaseTypes.DesignerPosition("1720fcdb-24fb-432f-945e-ee150a8fe519")]
             if (System.Convert.ToString(xpath(msgUser, "string(/*[local-name()='User']/*[local-name()='Username'])")) != "AlreadyExists")

@@ -73,8 +73,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Map Include="Maps\AddAmount_To_AddAmountByUsernameSOAP.btm">
-      <TypeName>AddAmount_To_AddAmountSOAP</TypeName>
+    <Map Include="Maps\AddAmount_To_WSAddAmountByUsername.btm">
+      <TypeName>AddAmount_To_WSAddAmountByUsername</TypeName>
       <Namespace>BizTalkPrintSystem.Maps</Namespace>
       <SubType>Task</SubType>
     </Map>
@@ -161,15 +161,15 @@
     <None Include="SN_KeyFile\AdvWorks.snk" />
   </ItemGroup>
   <ItemGroup>
-    <Map Include="Maps\SOAP_AddUser.btm">
-      <TypeName>SOAP_AddUser</TypeName>
+    <Map Include="Maps\NewUser_To_WSAddUser.btm">
+      <TypeName>NewUser_To_WSAddUser</TypeName>
       <Namespace>BizTalkPrintSystem</Namespace>
       <SubType>Task</SubType>
     </Map>
   </ItemGroup>
   <ItemGroup>
-    <Map Include="Maps\SOAPAccount_To_User.btm">
-      <TypeName>SOAPAccount_To_User</TypeName>
+    <Map Include="Maps\WSAccount_To_User.btm">
+      <TypeName>WSAccount_To_User</TypeName>
       <Namespace>BizTalkPrintSystem.Maps</Namespace>
       <SubType>Task</SubType>
     </Map>
@@ -182,15 +182,15 @@
     </XLang>
   </ItemGroup>
   <ItemGroup>
-    <Map Include="Maps\AddUsers_To_SOAPAddUser_By_Username.btm">
-      <TypeName>AddUsers_To_SOAPAddUser_By_Username</TypeName>
+    <Map Include="Maps\AddUsers_To_WSAddUserByUsername.btm">
+      <TypeName>AddUsers_To_WSAddUserByUsername</TypeName>
       <Namespace>BizTalkPrintSystem.Maps</Namespace>
       <SubType>Task</SubType>
     </Map>
   </ItemGroup>
   <ItemGroup>
-    <Map Include="Maps\SOAP_AddAmountByUsername_ReturnAccount_To_User.btm">
-      <TypeName>SOAP_AddAmountByUsername_ReturnAccount_To_User</TypeName>
+    <Map Include="Maps\WSAddAmountByUsernameResult_To_User.btm">
+      <TypeName>WSAddAmountByUsernameResult_To_User</TypeName>
       <Namespace>BizTalkPrintSystem.Maps</Namespace>
       <SubType>Task</SubType>
     </Map>
@@ -203,15 +203,15 @@
     </XLang>
   </ItemGroup>
   <ItemGroup>
-    <Map Include="Maps\AddAmount_To_AddAmountByUIDSOAP.btm">
-      <TypeName>AddAmount_To_AddAmountByUIDSOAP</TypeName>
+    <Map Include="Maps\AddAmount_To_WSAddAmountByUID.btm">
+      <TypeName>AddAmount_To_WSAddAmountByUID</TypeName>
       <Namespace>BizTalkPrintSystem.Maps</Namespace>
       <SubType>Task</SubType>
     </Map>
   </ItemGroup>
   <ItemGroup>
-    <Map Include="Maps\SOAP_AddAmountByUID_ReturnAccount_To_User.btm">
-      <TypeName>SOAP_AddAmountByUID_ReturnAccount_To_User</TypeName>
+    <Map Include="Maps\WSAddAmountByUIDResult_To_User.btm">
+      <TypeName>WSAddAmountByUIDResult_To_User</TypeName>
       <Namespace>BizTalkPrintSystem.Maps</Namespace>
       <SubType>Task</SubType>
     </Map>
@@ -224,22 +224,22 @@
     </XLang>
   </ItemGroup>
   <ItemGroup>
-    <Map Include="Maps\DimAmountResult_to_User.btm">
-      <TypeName>DimAmountResult_to_User</TypeName>
+    <Map Include="Maps\WSDimAmountResult_to_User.btm">
+      <TypeName>WSDimAmountResult_to_User</TypeName>
       <Namespace>BizTalkPrintSystem.Maps</Namespace>
       <SubType>Task</SubType>
     </Map>
   </ItemGroup>
   <ItemGroup>
-    <Map Include="Maps\Quota_to_Print_TO_DimAmount_Request.btm">
-      <TypeName>Quota_to_Print_TO_DimAmount_Request</TypeName>
+    <Map Include="Maps\QuotaToPrint_To_WSDimAmount.btm">
+      <TypeName>QuotaToPrint_To_WSDimAmount</TypeName>
       <Namespace>BizTalkPrintSystem.Maps</Namespace>
       <SubType>Task</SubType>
     </Map>
   </ItemGroup>
   <ItemGroup>
-    <Map Include="Maps\Quota_To_Print_TO_Auth.btm">
-      <TypeName>Quota_To_Print_TO_Auth</TypeName>
+    <Map Include="Maps\QuotaToPrint_To_Auth.btm">
+      <TypeName>QuotaToPrint_To_Auth</TypeName>
       <Namespace>BizTalkPrintSystem.Maps</Namespace>
       <SubType>Task</SubType>
     </Map>
@@ -252,8 +252,8 @@
     </XLang>
   </ItemGroup>
   <ItemGroup>
-    <Map Include="Maps\Auth_TO_AuthResult.btm">
-      <TypeName>Auth_TO_AuthResult</TypeName>
+    <Map Include="Maps\Auth_To_AuthResult.btm">
+      <TypeName>Auth_To_AuthResult</TypeName>
       <Namespace>BizTalkPrintSystem.Maps</Namespace>
       <SubType>Task</SubType>
     </Map>

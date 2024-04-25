@@ -121,17 +121,17 @@
                     <om:Property Name="Name" Value="Prepare to SOAP" />
                     <om:Property Name="Signal" Value="True" />
                     <om:Element Type="Transform" OID="118a3895-102a-4e88-ae4a-6e9334a64f6c" ParentLink="ComplexStatement_Statement" LowerBound="45.1" HigherBound="47.1">
-                        <om:Property Name="ClassName" Value="BizTalkPrintSystem.Maps.AddAmount_To_AddAmountSOAP" />
+                        <om:Property Name="ClassName" Value="BizTalkPrintSystem.Maps.AddAmount_To_WSAddAmountByUsername" />
                         <om:Property Name="ReportToAnalyst" Value="True" />
                         <om:Property Name="Name" Value="SOAP_AddAmount" />
-                        <om:Property Name="Signal" Value="False" />
-                        <om:Element Type="MessagePartRef" OID="bf9f045e-ae79-4abf-b191-85fc9adb6504" ParentLink="Transform_InputMessagePartRef" LowerBound="46.109" HigherBound="46.121">
+                        <om:Property Name="Signal" Value="True" />
+                        <om:Element Type="MessagePartRef" OID="22b160f0-bd16-4f78-8a63-4cf1fe70dfc6" ParentLink="Transform_InputMessagePartRef" LowerBound="46.117" HigherBound="46.129">
                             <om:Property Name="MessageRef" Value="msgAddAmount" />
                             <om:Property Name="ReportToAnalyst" Value="True" />
                             <om:Property Name="Name" Value="MessagePartReference_1" />
                             <om:Property Name="Signal" Value="False" />
                         </om:Element>
-                        <om:Element Type="MessagePartRef" OID="b95e575d-1d3d-47ce-a994-e458a207b3b6" ParentLink="Transform_OutputMessagePartRef" LowerBound="46.28" HigherBound="46.53">
+                        <om:Element Type="MessagePartRef" OID="0e25bb84-0936-4d19-96a7-1e63b599d545" ParentLink="Transform_OutputMessagePartRef" LowerBound="46.28" HigherBound="46.53">
                             <om:Property Name="MessageRef" Value="msgSoapAddAmount_Username" />
                             <om:Property Name="ReportToAnalyst" Value="True" />
                             <om:Property Name="Name" Value="MessagePartReference_2" />
@@ -168,17 +168,17 @@
                     <om:Property Name="Name" Value="Prepare to PrintSystem" />
                     <om:Property Name="Signal" Value="True" />
                     <om:Element Type="Transform" OID="a78dbbe3-25c3-4eb5-9bdb-cec850c8692e" ParentLink="ComplexStatement_Statement" LowerBound="55.1" HigherBound="57.1">
-                        <om:Property Name="ClassName" Value="BizTalkPrintSystem.Maps.SOAP_AddAmountByUsername_ReturnAccount_To_User" />
+                        <om:Property Name="ClassName" Value="BizTalkPrintSystem.Maps.WSAddAmountByUsernameResult_To_User" />
                         <om:Property Name="ReportToAnalyst" Value="True" />
                         <om:Property Name="Name" Value="SOAP_Account_To_User" />
-                        <om:Property Name="Signal" Value="False" />
-                        <om:Element Type="MessagePartRef" OID="089311a1-07f0-48a9-adf6-c63ec3c36d37" ParentLink="Transform_InputMessagePartRef" LowerBound="56.111" HigherBound="56.131">
+                        <om:Property Name="Signal" Value="True" />
+                        <om:Element Type="MessagePartRef" OID="3043a23a-f71d-4860-bf54-4749310b5215" ParentLink="Transform_InputMessagePartRef" LowerBound="56.100" HigherBound="56.120">
                             <om:Property Name="MessageRef" Value="msgSoapReturnAccount" />
                             <om:Property Name="ReportToAnalyst" Value="True" />
                             <om:Property Name="Name" Value="MessagePartReference_3" />
                             <om:Property Name="Signal" Value="False" />
                         </om:Element>
-                        <om:Element Type="MessagePartRef" OID="f97d3465-7364-4f1a-b284-eab4be0c3af4" ParentLink="Transform_OutputMessagePartRef" LowerBound="56.28" HigherBound="56.35">
+                        <om:Element Type="MessagePartRef" OID="a6ca95ca-50cb-4b60-946f-8f0696e398b4" ParentLink="Transform_OutputMessagePartRef" LowerBound="56.28" HigherBound="56.35">
                             <om:Property Name="MessageRef" Value="msgUser" />
                             <om:Property Name="ReportToAnalyst" Value="True" />
                             <om:Property Name="Name" Value="MessagePartReference_4" />
@@ -314,7 +314,7 @@ module BizTalkPrintSystem
             construct msgSoapAddAmount_Username
             {
                 [Microsoft.XLANGs.BaseTypes.DesignerPosition("118a3895-102a-4e88-ae4a-6e9334a64f6c")]
-                transform (msgSoapAddAmount_Username) = BizTalkPrintSystem.Maps.AddAmount_To_AddAmountSOAP (msgAddAmount);
+                transform (msgSoapAddAmount_Username) = BizTalkPrintSystem.Maps.AddAmount_To_WSAddAmountByUsername (msgAddAmount);
             }
             [Microsoft.XLANGs.BaseTypes.DesignerPosition("7964087a-bc11-4dc7-872a-53b45fd5e720")]
             send (WebService.AddAmountByUsername, msgSoapAddAmount_Username);
@@ -324,7 +324,7 @@ module BizTalkPrintSystem
             construct msgUser
             {
                 [Microsoft.XLANGs.BaseTypes.DesignerPosition("a78dbbe3-25c3-4eb5-9bdb-cec850c8692e")]
-                transform (msgUser) = BizTalkPrintSystem.Maps.SOAP_AddAmountByUsername_ReturnAccount_To_User (msgSoapReturnAccount);
+                transform (msgUser) = BizTalkPrintSystem.Maps.WSAddAmountByUsernameResult_To_User (msgSoapReturnAccount);
                 [Microsoft.XLANGs.BaseTypes.DesignerPosition("4e2abb2c-db70-4c1b-aa19-973729f4d858")]
                 msgUser(FILE.ReceivedFileName) = xpath(msgUser, "string(/*[local-name()='User']/*[local-name()='Username'])");
             }
