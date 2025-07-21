@@ -1,8 +1,8 @@
 # BizTalk_PrintSystem
 
-🎓 This project is a **learning-oriented proof of concept** demonstrating how to use **Microsoft BizTalk Server** to automate a simple document handling and printing workflow.
+This project is a **learning-oriented proof of concept** demonstrating how to use **Microsoft BizTalk Server** to automate a simple document handling and printing workflow.
 
-## 🧠 Project Goal
+## Project Goal
 
 To simulate a basic enterprise workflow where:
 - Files are dropped into specific folders.
@@ -20,7 +20,7 @@ The goal was to explore the capabilities of BizTalk and learn how to integrate s
 - `Bindings/` – Environment-specific configuration files.
 - `TestFiles/` – Example XML files to test the system.
 
-## 🚀 Requirements
+## Requirements
 
 - Microsoft BizTalk Server (2013 or later recommended)
 - Visual Studio with BizTalk Development Tools
@@ -31,7 +31,7 @@ The goal was to explore the capabilities of BizTalk and learn how to integrate s
 - This is not a production-ready system.
 - It was built to learn BizTalk fundamentals in an academic context.
 
-## 📦 Status
+## Status
 
 📁 Archived — the project is no longer maintained.  
 🧪 Educational use only.
